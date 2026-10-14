@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MLBB Draft Predictor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1>MLBB Draft Predictor</h1>
+
+    <section class="team team-red">
+      <h2>Red Team</h2>
+      <div class="slots" data-team="red"></div>
+    </section>
+
+    <div class="vs">VS</div>
+
+    <section class="team team-blue">
+      <div class="slots" data-team="blue"></div>
+      <h2>Blue Team</h2>
+    </section>
+
+    <div class="actions">
+      <button id="reset" class="btn btn-ghost" type="button">Reset</button>
+      <button id="analyse" class="btn btn-primary" type="button" disabled>Analyse</button>
+    </div>
+    <p id="hint" class="hint">Pick all 10 heroes to analyse the draft.</p>
+    <div id="result" class="result" hidden></div>
+  </main>
+
+  <dialog id="picker" class="picker">
+    <div class="picker-head">
+      <h3 id="picker-title">Choose a hero</h3>
+      <input id="search" type="search" placeholder="Search heroes…" autocomplete="off">
+      <button id="clear-slot" class="btn btn-ghost" type="button">Clear slot</button>
+      <button id="close-picker" class="btn btn-ghost" type="button" aria-label="Close">✕</button>
+    </div>
+    <div id="hero-grid" class="hero-grid"></div>
+  </dialog>
+
+  <script src="heroes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
