@@ -45,11 +45,18 @@ export type Analysis = {
 export const other = (s: Side): Side => (s === "red" ? "blue" : "red");
 
 // The rank the game is played at: rank-sensitive heroes gain points in low ranks and lose them in high ranks.
-export type Rank = "low" | "mid" | "high";
+export type Rank = "legend" | "mythic" | "glory" | "immortal";
 export type Queue = "solo" | "party";
 export type Context = { rank: Rank; queue: Queue };
-export const DEFAULT_CONTEXT: Context = { rank: "mid", queue: "solo" };
-const RANK_SIGN: Record<Rank, number> = { low: 1, mid: 0, high: -1 };
+export const DEFAULT_CONTEXT: Context = { rank: "mythic", queue: "solo" };
+export const RANKS: { value: Rank; label: string; short: string }[] = [
+  { value: "legend", label: "Legend", short: "Legend" },
+  { value: "mythic", label: "Mythic", short: "Mythic" },
+  { value: "glory", label: "Mythical Glory", short: "Glory" },
+  { value: "immortal", label: "Mythical Immortal", short: "Immortal" },
+];
+// How uncoordinated games are at each rank: +1 favours rank-sensitive "low rank" heroes, −1 punishes them.
+const RANK_SIGN: Record<Rank, number> = { legend: 1, mythic: 0.33, glory: -0.33, immortal: -1 };
 
 // Thresholds on the 0–5 rating scale.
 const FRONTLINE = 4; // a real frontline
@@ -111,7 +118,7 @@ export class Knowledge {
     const coordination = RANK_SIGN[ctx.rank] + (ctx.queue === "solo" ? solo : -solo);
     if (bias && p?.rank_bias && coordination) {
       const points = bias.weight * p.rank_bias * coordination;
-      const where = `${ctx.rank} rank ${ctx.queue} queue`;
+      const where = `${RANKS.find((r) => r.value === ctx.rank)?.label} ${ctx.queue} queue`;
       out.push({ text: points > 0 ? `Stronger in ${where}` : `Weaker in ${where}`, points, status: bias.status });
     }
     return out;

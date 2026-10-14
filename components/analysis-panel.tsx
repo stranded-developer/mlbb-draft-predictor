@@ -54,7 +54,7 @@ function ReasonRow({ r }: { r: Reason }) {
 export function AnalysisPanel({ analysis }: { analysis: Analysis }) {
   const { advantage, favored, phases, reasons, items, winConditions, types, unreviewed } = analysis;
   return (
-    <div className="mt-6 space-y-4">
+    <div className="space-y-3">
       <Card>
         <CardContent className="space-y-4">
           <div className="flex items-end justify-between gap-4">
