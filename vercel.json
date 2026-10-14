@@ -1,0 +1,4 @@
+{
+  "framework": "nextjs",
+  "redirects": [{ "source": "/admin.html", "destination": "/admin", "permanent": true }]
+}

@@ -1,5 +1,7 @@
-// Hero list in release order. Image: assets/heroes/<slug>.png (missing images fall back to initials).
-const HEROES = [
+// Hero list in release order. Images live at public/heroes/<slug>.png.
+export type Hero = { id: number; name: string; slug: string };
+
+export const HEROES: Hero[] = [
   { id: 1, name: "Miya", slug: "miya" },
   { id: 2, name: "Balmond", slug: "balmond" },
   { id: 3, name: "Saber", slug: "saber" },
@@ -134,3 +136,7 @@ const HEROES = [
   { id: 132, name: "Marcel", slug: "marcel" },
   { id: 133, name: "Hirara", slug: "hirara" },
 ];
+
+export const HERO_BY_SLUG = new Map(HEROES.map((h) => [h.slug, h]));
+
+export const heroName = (slug: string) => HERO_BY_SLUG.get(slug)?.name ?? slug;
