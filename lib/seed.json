@@ -1,523 +1,4988 @@
 {
  "hero_profiles": [
   {
-   "slug": "lukas",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "rush",
-    "dash",
-    "thick"
-   ],
-   "ban_note": "Meta fighter; sustain solo-queue teams can't burst through.",
-   "notes": "CC immune while dashing (so Khufra doesn't stop him). Skill lifesteal — buy Dominance Ice.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "aulus",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "rush",
-    "thick"
-   ],
-   "ban_note": "Meta fighter; rush core that scales into an unkillable late game.",
-   "notes": "Counter with early pressure and kiting — little escape.",
+   "slug": "miya",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
    "power_early": 2,
    "power_mid": 3,
    "power_late": 5,
-   "status": "confirmed"
-  },
-  {
-   "slug": "masha",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "thick"
-   ],
-   "ban_note": "Meta fighter; extremely hard to burst.",
-   "notes": "Multiple HP bars make her very hard to burst.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "paquito",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "dash"
-   ],
-   "ban_note": "Very strong; dominates the early game.",
-   "notes": "Early game super strong. Bush presence is hard to deal with.",
-   "power_early": 5,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "marcel",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "frontline"
-   ],
-   "ban_note": "Meta roamer; time-stop ultimate wins teamfights.",
-   "notes": "Converts health into defense — answer with burst true damage. Diggie and Purify do NOT cancel his ultimate.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "hirara",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "dash"
-   ],
-   "ban_note": "Meta jungler; dominates the early game.",
    "notes": "",
-   "power_early": 5,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "belerick",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "thick",
-    "frontline",
-    "slow_teamfight"
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
    ],
-   "ban_note": "Insane durability and CC; needs true damage to answer.",
-   "notes": "Ultimate reflects damage. Late-game tank.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": 5,
-   "status": "confirmed"
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 5,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 0,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
   },
   {
-   "slug": "carmilla",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "frontline"
-   ],
-   "ban_note": "Top roam pick; strong teamfight lockdown.",
-   "notes": "Diggie does NOT break her blood link.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "alice",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [],
-   "ban_note": "Especially dangerous paired with Angela.",
-   "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "hanzo",
-   "is_meta": true,
-   "ban_recommended": false,
-   "tags": [],
-   "ban_note": "",
-   "notes": "Mid-game power.",
-   "power_early": null,
-   "power_mid": 5,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "gloo",
-   "is_meta": true,
-   "ban_recommended": true,
-   "tags": [
-    "frontline",
-    "thick"
-   ],
-   "ban_note": "Strong; ban if you have no Faramis/Vexana/Winter Crown answer.",
-   "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "atlas",
-   "is_meta": true,
-   "ban_recommended": false,
-   "tags": [
-    "frontline",
-    "thick"
-   ],
-   "ban_note": "",
-   "notes": "Very strong presence (CC ultimate control) but doesn't need a ban.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "freya",
+   "slug": "balmond",
    "is_meta": false,
    "ban_recommended": false,
-   "tags": [],
    "ban_note": "",
-   "notes": "Not meta.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "eudora",
-   "is_meta": false,
-   "ban_recommended": false,
    "tags": [],
-   "ban_note": "",
-   "notes": "Not meta. Fast-tempo mage. Counter kit still to find.",
    "power_early": 4,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "estes",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "enchanter",
-    "slow_teamfight"
-   ],
-   "ban_note": "",
-   "notes": "Not meta. Beat with Saber burst, split pushers, anti-heal (Baxia), Sora.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "rafaela",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "enchanter"
-   ],
-   "ban_note": "",
-   "notes": "Overrated — not ban-worthy. Falls apart without a tank.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "floryn",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "enchanter"
-   ],
-   "ban_note": "",
-   "notes": "Needs a tank to function.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "sun",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "split"
-   ],
-   "ban_note": "",
-   "notes": "Pushes extremely fast; usually must be answered, but rotating more than one hero loses tempo.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "dyrroth",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank",
-    "true_damage"
-   ],
-   "ban_note": "",
-   "notes": "VERY strong early, weak late.",
-   "power_early": 5,
    "power_mid": 3,
-   "power_late": 1,
-   "status": "confirmed"
-  },
-  {
-   "slug": "alpha",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank",
-    "true_damage"
-   ],
-   "ban_note": "",
-   "notes": "Good in familiar hands; must land ultimate. Bad into heavy kiting or healing (e.g. Estes).",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "karrie",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank",
-    "true_damage",
-    "dash"
-   ],
-   "ban_note": "",
-   "notes": "Best vs 2+ thick heroes. Has a dash, so survives divers better than Lesley.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "lesley",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank",
-    "true_damage"
-   ],
-   "ban_note": "",
-   "notes": "Long-range true damage; bad when the enemy closes distance fast (e.g. Yu Zhong).",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": 5,
-   "status": "confirmed"
-  },
-  {
-   "slug": "x-borg",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank",
-    "true_damage"
-   ],
-   "ban_note": "",
-   "notes": "Heavy true damage vs tanks, but too slow as burst.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "beatrix",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank"
-   ],
-   "ban_note": "",
+   "power_late": 2,
    "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "cecilion",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_tank"
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
    ],
-   "ban_note": "",
-   "notes": "Late-game mid option vs tanks.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": 5,
-   "status": "confirmed"
-  },
-  {
-   "slug": "valir",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_walking"
-   ],
-   "ban_note": "",
-   "notes": "Great vs drafts with lots of walking heroes; best mage answer to Sun's split push.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "khufra",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_dash",
-    "frontline"
-   ],
-   "ban_note": "",
-   "notes": "Stops dashes — but not Lukas (CC immune while dashing).",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "minsitthar",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "anti_dash"
-   ],
-   "ban_note": "",
-   "notes": "Ultimate stops dashes.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "obsidia",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [],
-   "ban_note": "",
-   "notes": "Hard counters dash heroes.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "karina",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [],
-   "ban_note": "",
-   "notes": "Very strong counter to Obsidia — check the rest of the draft. Karina's own counters still to note.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "yu-zhong",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "thick"
-   ],
-   "ban_note": "",
-   "notes": "Closes distance fast — punishes Lesley.",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": 5,
-   "status": "confirmed"
-  },
-  {
-   "slug": "ling",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [],
-   "ban_note": "",
-   "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": 5,
-   "status": "confirmed"
-  },
-  {
-   "slug": "granger",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [],
-   "ban_note": "",
-   "notes": "Fast tempo.",
-   "power_early": 4,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "hilda",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "rush",
-    "thick"
-   ],
-   "ban_note": "",
-   "notes": "Fast tempo.",
-   "power_early": 4,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "kalea",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "pickoff"
-   ],
-   "ban_note": "",
-   "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
-  },
-  {
-   "slug": "nolan",
-   "is_meta": false,
-   "ban_recommended": false,
-   "tags": [
-    "pickoff",
-    "dash"
-   ],
-   "ban_note": "",
-   "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
+   "ratings": {
+    "frontline": 3,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
   },
   {
    "slug": "saber",
    "is_meta": false,
    "ban_recommended": false,
+   "ban_note": "",
    "tags": [
     "pickoff"
    ],
-   "ban_note": "",
+   "power_early": 4,
+   "power_mid": 3,
+   "power_late": 2,
    "notes": "",
-   "power_early": null,
-   "power_mid": null,
-   "power_late": null,
-   "status": "confirmed"
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "alice",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Especially dangerous paired with Angela.",
+   "tags": [
+    "thick"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "S tier with Angela, A tier without; in the meta. Sustain teamfighter, front-to-back. Easily kited early; scales hard late. Weak to anti-heal (Baxia), crowd control and kiting heroes (Karrie, Lunox). Strong against tanky EXP fighters and fighter gold laners. Alpha can win early but Alice mostly out-sustains him late. Franco's suppress is strong before Alice stacks. Lower ranks have a harder time against her.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "exp",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 4,
+    "cc": 4,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 1,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 5
+   },
+   "difficulty": 3,
+   "specs_reviewed": true,
+   "tier": "A",
+   "rank_bias": 2,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [
+    "thick"
+   ],
+   "weak_vs_traits": [
+    "anti_heal",
+    "cc",
+    "mobility"
+   ],
+   "good_with_traits": []
+  },
+  {
+   "slug": "nana",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "tigreal",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "alucard",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "Decent against certain drafts: strong sustain and damage against enemies without stuns (lifesteal). Bad against drafts with stunners. If he gets ahead early he snowballs very hard and farms very fast. Weak to anti-heal, hard crowd control and kiting. Much stronger in low ranks and solo queue (uncoordinated teams).",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": true,
+   "tier": "C",
+   "rank_bias": 2,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [
+    "cc",
+    "anti_heal"
+   ],
+   "good_with_traits": []
+  },
+  {
+   "slug": "karina",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Very strong counter to Obsidia \u2014 check the rest of the draft. Karina's own counters still to note.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "akai",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Very recommended against certain drafts, e.g. Aulus, Lukas and dive comps \u2014 easily disrupts them. Very strong high-ground defense. Not naturally a frontline. Falls off late due to long cooldowns and more mobile enemies. Strong invade: built-in dash + stun at levels 1\u20132 for pickoffs. Weak to Purify and CC immunity (Diggie). Lesley is the best anti-tank into him; Karrie, X.Borg and Dyrroth get spun by his ultimate.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "roam",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 4,
+    "teamfight": 4,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": true,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [
+    "Dive"
+   ],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "franco",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "bane",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "mixed",
+   "roles": [
+    "jungle",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "bruno",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "clint",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "rafaela",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "enchanter"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Overrated \u2014 not ban-worthy. Falls apart without a tank.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 0,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "eudora",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 3,
+   "power_late": 2,
+   "notes": "Not meta. Fast-tempo mage. Counter kit still to find.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 0,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "zilong",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 0,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "fanny",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "layla",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 1,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 0,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "minotaur",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lolita",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hayabusa",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "freya",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "Not meta.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "gord",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "natalia",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 3,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 0,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 0,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "kagura",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "chou",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "sun",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Top ban: extremely strong late-game split push.",
+   "tags": [
+    "split"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 5,
+   "notes": "Pushes extremely fast; usually must be answered, but rotating more than one hero loses tempo.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 5,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "alpha",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "dive",
+    "pickoff",
+    "true_damage"
+   ],
+   "power_early": 3,
+   "power_mid": 5,
+   "power_late": 3,
+   "notes": "Strong against Belerick, Carmilla and tank-heavy drafts (true damage). Falls off late. Pickoff/dive, all-in commit \u2014 can't really poke. Must land his ultimate. Estes is a strong counter.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 2,
+   "specs_reviewed": true,
+   "tier": "B",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [
+    "thick"
+   ],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "ruby",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 5
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "yi-sun-shin",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "moskov",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "johnson",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 5,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "cyclops",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "estes",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "enchanter",
+    "slow_teamfight"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Not meta. Beat with Saber burst, split pushers, anti-heal (Baxia), Sora.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 0,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 0,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hilda",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "rush",
+    "thick"
+   ],
+   "power_early": 4,
+   "power_mid": 3,
+   "power_late": 2,
+   "notes": "Fast tempo.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "aurora",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 5,
+    "mobility": 0,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lapu-lapu",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "vexana",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "roger",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "karrie",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "true_damage",
+    "dash"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "Best vs 2+ thick heroes. Has a dash, so survives divers better than Lesley.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "gatotkaca",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "harley",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "jungle",
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "irithel",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "grock",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "argus",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "split",
+    "thick"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "Very situational, B tier (A if played right). Good against burst (Kadita, Eudora, Tigreal combos that usually delete a solo target). Stays in long drawn-out teamfights and is a very good split pusher. Generally wins fights against tanks. Weak against kiters that run away (Chang'e, Lesley, Granger, Beatrix); needs the team to back him up, otherwise he split pushes. Team dependent.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 4,
+    "objective": 4,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 4
+   },
+   "difficulty": 2,
+   "specs_reviewed": true,
+   "tier": "B",
+   "rank_bias": -1,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [
+    "thick"
+   ],
+   "weak_vs_traits": [
+    "mobility"
+   ],
+   "good_with_traits": []
+  },
+  {
+   "slug": "odette",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lancelot",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "diggie",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "cleanse"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 0,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hylos",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "zhask",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 5,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "helcurt",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "pharsa",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lesley",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "true_damage",
+    "poke"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "Long-range true damage; bad when the enemy closes distance fast (e.g. Yu Zhong).",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "jawhead",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "angela",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "enchanter",
+    "global"
+   ],
+   "power_early": 1,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "C tier \u2014 very conditional, usually not good. Works with Alice or Lukas, or high-skill assassins that go in and out with burst: Lancelot, Gusion and Hayabusa are most viable, Yi Sun-shin and Nolan possible. Without tank/sustain heroes she leaves the marksman in a very bad state. Global presence is one of her biggest advantages. Pickoff comes from her ultimate.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 1,
+    "pickoff": 3,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": true,
+   "tier": "C",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "gusion",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "valir",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_walking"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Great vs drafts with lots of walking heroes; best mage answer to Sun's split push.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "martis",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "uranus",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 2,
+    "pickoff": 0,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hanabi",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 0,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "chang-e",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "kaja",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "selena",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "aldous",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "pickoff",
+    "split"
+   ],
+   "power_early": 1,
+   "power_mid": 2,
+   "power_late": 4,
+   "notes": "Out of meta \u2014 too immobile, hard to make viable. Plays as an assassin finisher from the EXP lane. Very weak early. Late game easily bursts far-back squishies (Lesley, Layla) but needs good timing. Split push is strong and must be respected, but leaves the team without an EXP frontline. Countered by defensive items and teams that stick together.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 1,
+    "wave_clear": 3,
+    "objective": 4,
+    "hg_defense": 0,
+    "teamfight": 1,
+    "pickoff": 5,
+    "sustain": 3
+   },
+   "difficulty": 4,
+   "specs_reviewed": true,
+   "tier": "D",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [
+    "Teamfight"
+   ],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "claude",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "vale",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "leomord",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lunox",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hanzo",
+   "is_meta": true,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 5,
+   "power_late": 3,
+   "notes": "Mid-game power.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 5,
+    "hg_defense": 0,
+    "teamfight": 0,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "belerick",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Insane durability and CC; needs true damage to answer.",
+   "tags": [
+    "thick",
+    "frontline",
+    "slow_teamfight"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "Ultimate reflects damage. Late-game tank.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "kimmy",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "mixed",
+   "roles": [
+    "mid",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "thamuz",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "harith",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "minsitthar",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_dash"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Ultimate stops dashes.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "kadita",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "faramis",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 0,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "badang",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "khufra",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_dash",
+    "frontline"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Stops dashes \u2014 but not Lukas (CC immune while dashing).",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 5,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "granger",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Fast tempo.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "guinevere",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 5,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "esmeralda",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 5
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "terizla",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "x-borg",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "true_damage"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Heavy true damage vs tanks, but too slow as burst.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "ling",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "dyrroth",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "true_damage"
+   ],
+   "power_early": 5,
+   "power_mid": 3,
+   "power_late": 1,
+   "notes": "VERY strong early, weak late.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lylia",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "baxia",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_heal"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "jungle",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "masha",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Meta fighter; extremely hard to burst.",
+   "tags": [
+    "thick"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Multiple HP bars make her very hard to burst.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "roam",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 5,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "wanwan",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "silvanna",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "cecilion",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "poke"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "Late-game mid option vs tanks.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "carmilla",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Top roam pick; strong teamfight lockdown.",
+   "tags": [
+    "frontline"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Diggie does NOT break her blood link.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "atlas",
+   "is_meta": true,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "frontline",
+    "thick"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Very strong presence (CC ultimate control) but doesn't need a ban.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "popol-and-kupa",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 5,
+    "hg_defense": 5,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "yu-zhong",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "thick"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 5,
+   "notes": "Closes distance fast \u2014 punishes Lesley.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "luo-yi",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "benedetta",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "khaleed",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "barats",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "brody",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "yve",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 5,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "mathilda",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "paquito",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Very strong; dominates the early game.",
+   "tags": [
+    "dash"
+   ],
+   "power_early": 5,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "Early game super strong. Bush presence is hard to deal with.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 3,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "gloo",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Strong; ban if you have no Faramis/Vexana/Winter Crown answer.",
+   "tags": [
+    "frontline",
+    "thick"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "beatrix",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "anti_tank",
+    "poke"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "phoveus",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "natan",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "aulus",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Meta fighter; rush core that scales into an unkillable late game.",
+   "tags": [
+    "rush",
+    "thick"
+   ],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "Counter with early pressure and kiting \u2014 little escape.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "exp",
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "aamon",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "pickoff",
+    "stealth"
+   ],
+   "power_early": 2,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "Strong mid to late game, weak early. No dash, but camouflage is very strong in lower ranks; higher ranks can dodge his ultimate with dashes and Flicker (not easy). Easy to play but timing matters. Strong against immobile heroes and heroes that rely on targeting (camouflage). Recommended jungle pick against front-to-back drafts with an immobile backline. Close to meta (A tier).",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 0,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 0,
+    "pickoff": 5,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": true,
+   "tier": "A",
+   "rank_bias": 1,
+   "strong_vs_types": [
+    "Front-to-back"
+   ],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "valentina",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "edith",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "mixed",
+   "roles": [
+    "exp",
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "floryn",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "enchanter"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "Needs a tank to function.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam",
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 0,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 0,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "yin",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle",
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 0,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "melissa",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 5,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "xavier",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "julian",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 3,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "fredrinn",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "joy",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "novaria",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "poke"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 5,
+    "teamfight": 2,
+    "pickoff": 3,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "arlott",
+   "is_meta": true,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "dive",
+    "pickoff"
+   ],
+   "power_early": 4,
+   "power_mid": 5,
+   "power_late": 3,
+   "notes": "Very strong \u2014 S tier if played correctly. Like Lancelot but stronger, and has crowd control too. Not a frontliner but huge damage; overwhelms enemies and makes a mess. Falls off late. Strong against teams without lockdown. Synergy with crowd-control allies. Can still deal with split pushers if played right. Usually builds lifesteal, so bring anti-heal. Countered by Phoveus (cancels dashes, out-sustains, teleports), Minsitthar and Khufra (dash cancels), Kaja (lockdown).",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 3,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 3,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 4,
+   "specs_reviewed": true,
+   "tier": "S",
+   "rank_bias": -1,
+   "strong_vs_types": [
+    "Split push"
+   ],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [
+    "lockdown"
+   ],
+   "good_with_traits": [
+    "cc"
+   ]
+  },
+  {
+   "slug": "ixia",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 5,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 0,
+    "wave_clear": 5,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 0,
+    "sustain": 3
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "nolan",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "pickoff",
+    "dash"
+   ],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 0,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "cici",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 2,
+    "sustain": 3
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "chip",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 3,
+    "mobility": 3,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "zhuxin",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "suyou",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 4,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 2
+   },
+   "difficulty": 5,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "lukas",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Meta fighter; sustain solo-queue teams can't burst through.",
+   "tags": [
+    "rush",
+    "dash",
+    "thick"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 4,
+   "notes": "CC immune while dashing (so Khufra doesn't stop him). Skill lifesteal \u2014 buy Dominance Ice.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "exp",
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 5
+   },
+   "difficulty": 1,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "kalea",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [
+    "pickoff"
+   ],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 3,
+    "cc": 5,
+    "mobility": 3,
+    "wave_clear": 2,
+    "objective": 0,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "zetian",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "magic",
+   "roles": [
+    "mid"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 3,
+    "mobility": 2,
+    "wave_clear": 5,
+    "objective": 0,
+    "hg_defense": 5,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "obsidia",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 2,
+   "power_mid": 3,
+   "power_late": 4,
+   "notes": "Hard counters dash heroes.",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "gold"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 2,
+    "wave_clear": 3,
+    "objective": 3,
+    "hg_defense": 3,
+    "teamfight": 3,
+    "pickoff": 3,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "sora",
+   "is_meta": false,
+   "ban_recommended": false,
+   "ban_note": "",
+   "tags": [],
+   "power_early": 3,
+   "power_mid": 4,
+   "power_late": 3,
+   "notes": "",
+   "status": "theory",
+   "damage_type": "physical",
+   "roles": [
+    "exp"
+   ],
+   "ratings": {
+    "frontline": 2,
+    "cc": 2,
+    "mobility": 3,
+    "wave_clear": 3,
+    "objective": 2,
+    "hg_defense": 2,
+    "teamfight": 3,
+    "pickoff": 2,
+    "sustain": 2
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": null,
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "marcel",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Meta roamer; time-stop ultimate wins teamfights.",
+   "tags": [
+    "frontline"
+   ],
+   "power_early": 3,
+   "power_mid": 3,
+   "power_late": 3,
+   "notes": "Converts health into defense \u2014 answer with burst true damage. Diggie and Purify do NOT cancel his ultimate.",
+   "status": "confirmed",
+   "damage_type": "magic",
+   "roles": [
+    "roam"
+   ],
+   "ratings": {
+    "frontline": 5,
+    "cc": 5,
+    "mobility": 2,
+    "wave_clear": 0,
+    "objective": 0,
+    "hg_defense": 3,
+    "teamfight": 5,
+    "pickoff": 2,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
+  },
+  {
+   "slug": "hirara",
+   "is_meta": true,
+   "ban_recommended": true,
+   "ban_note": "Meta jungler; dominates the early game.",
+   "tags": [
+    "dash"
+   ],
+   "power_early": 5,
+   "power_mid": 4,
+   "power_late": 2,
+   "notes": "",
+   "status": "confirmed",
+   "damage_type": "physical",
+   "roles": [
+    "jungle"
+   ],
+   "ratings": {
+    "frontline": 0,
+    "cc": 2,
+    "mobility": 5,
+    "wave_clear": 2,
+    "objective": 3,
+    "hg_defense": 0,
+    "teamfight": 2,
+    "pickoff": 5,
+    "sustain": 0
+   },
+   "difficulty": 3,
+   "specs_reviewed": false,
+   "tier": "S",
+   "rank_bias": 0,
+   "strong_vs_types": [],
+   "weak_vs_types": [],
+   "strong_vs_traits": [],
+   "weak_vs_traits": [],
+   "good_with_traits": []
   }
  ],
  "matchups": [
@@ -543,7 +5008,7 @@
    "kind": "soft",
    "points": null,
    "status": "confirmed",
-   "why": "Long-range true damage melts thick heroes — only if the enemy can't close the gap fast."
+   "why": "Long-range true damage melts thick heroes \u2014 only if the enemy can't close the gap fast."
   },
   {
    "counter": "x-borg",
@@ -575,7 +5040,7 @@
    "kind": "conditional",
    "points": null,
    "status": "confirmed",
-   "why": "Only steals Carmilla's ultimate — situational; pair with a real counter."
+   "why": "Only steals Carmilla's ultimate \u2014 situational; pair with a real counter."
   },
   {
    "counter": "diggie",
@@ -607,7 +5072,7 @@
    "kind": "hard",
    "points": null,
    "status": "confirmed",
-   "why": "Best mage answer to Sun's split push — clears his push and holds him off."
+   "why": "Best mage answer to Sun's split push \u2014 clears his push and holds him off."
   },
   {
    "counter": "vexana",
@@ -647,7 +5112,7 @@
    "kind": "soft",
    "points": null,
    "status": "theory",
-   "why": "Possible side-lane answer that can 1v1 Sun — unproven."
+   "why": "Possible side-lane answer that can 1v1 Sun \u2014 unproven."
   },
   {
    "counter": "faramis",
@@ -695,7 +5160,7 @@
    "kind": "hard",
    "points": null,
    "status": "theory",
-   "why": "Constant CC punishes Lukas's dashes — needs confirming in practice."
+   "why": "Constant CC punishes Lukas's dashes \u2014 needs confirming in practice."
   },
   {
    "counter": "khufra",
@@ -750,8 +5215,8 @@
    "target": "aulus",
    "kind": "soft",
    "points": null,
-   "status": "theory",
-   "why": "Out-sustains Aulus — needs testing without Angela."
+   "status": "confirmed",
+   "why": "Alice out-sustains Aulus."
   },
   {
    "counter": "estes",
@@ -766,16 +5231,16 @@
    "target": "masha",
    "kind": "soft",
    "points": null,
-   "status": "theory",
-   "why": "Uranus's regeneration out-sustains Masha — unproven."
+   "status": "confirmed",
+   "why": "Uranus regenerates HP while taking damage, so he out-sustains Masha."
   },
   {
    "counter": "masha",
    "target": "belerick",
    "kind": "soft",
    "points": null,
-   "status": "theory",
-   "why": "Masha's damage scales with enemy HP — to discuss."
+   "status": "confirmed",
+   "why": "Masha's damage scales with enemy HP and Belerick can't heal it back."
   },
   {
    "counter": "dyrroth",
@@ -791,7 +5256,7 @@
    "kind": "not",
    "points": null,
    "status": "confirmed",
-   "why": "True damage, but too slow — Marcel needs burst."
+   "why": "True damage, but too slow \u2014 Marcel needs burst."
   },
   {
    "counter": "belerick",
@@ -807,7 +5272,7 @@
    "kind": "hard",
    "points": null,
    "status": "confirmed",
-   "why": "Very strong counter — check the rest of the draft."
+   "why": "Very strong counter \u2014 check the rest of the draft."
   },
   {
    "counter": "lesley",
@@ -847,7 +5312,7 @@
    "kind": "hard",
    "points": null,
    "status": "theory",
-   "why": "Obsidia counters dash heroes — possibly Yi Sun-shin too."
+   "why": "Obsidia counters dash heroes \u2014 possibly Yi Sun-shin too."
   },
   {
    "counter": "minsitthar",
@@ -871,7 +5336,7 @@
    "kind": "soft",
    "points": null,
    "status": "theory",
-   "why": "Might answer Paquito's bush presence — unproven."
+   "why": "Might answer Paquito's bush presence \u2014 unproven."
   },
   {
    "counter": "saber",
@@ -900,10 +5365,10 @@
   {
    "counter": "estes",
    "target": "alpha",
-   "kind": "soft",
+   "kind": "hard",
    "points": null,
    "status": "confirmed",
-   "why": "Alpha struggles into heavy healing."
+   "why": "Estes's healing out-sustains Alpha's all-in."
   },
   {
    "counter": "aulus",
@@ -928,15 +5393,359 @@
    "points": null,
    "status": "confirmed",
    "why": "Does not hold Sun's split push in practice."
+  },
+  {
+   "counter": "lukas",
+   "target": "masha",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Lukas's lifesteal and damage win the duel, especially when Masha roams."
+  },
+  {
+   "counter": "aulus",
+   "target": "masha",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Aulus's sustain and damage win the duel, especially when Masha roams."
+  },
+  {
+   "counter": "aamon",
+   "target": "layla",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Camouflage walks past the frontline onto immobile backliners."
+  },
+  {
+   "counter": "aamon",
+   "target": "miya",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Camouflage walks past the frontline onto immobile backliners."
+  },
+  {
+   "counter": "aamon",
+   "target": "eudora",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Camouflage walks past the frontline onto immobile backliners."
+  },
+  {
+   "counter": "aamon",
+   "target": "cyclops",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Camouflage walks past the frontline onto immobile backliners."
+  },
+  {
+   "counter": "gloo",
+   "target": "aamon",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Aamon is very weak against Gloo."
+  },
+  {
+   "counter": "freya",
+   "target": "aamon",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Strong fighters like Freya beat Aamon."
+  },
+  {
+   "counter": "aurora",
+   "target": "aamon",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Area crowd control catches Aamon while camouflaged."
+  },
+  {
+   "counter": "vexana",
+   "target": "aamon",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Area crowd control catches Aamon while camouflaged."
+  },
+  {
+   "counter": "novaria",
+   "target": "aamon",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Novaria's vision reveals Aamon."
+  },
+  {
+   "counter": "akai",
+   "target": "aulus",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Akai's ultimate disrupts Aulus's dive."
+  },
+  {
+   "counter": "akai",
+   "target": "lukas",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Akai's ultimate disrupts Lukas's dive."
+  },
+  {
+   "counter": "diggie",
+   "target": "akai",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Diggie's ultimate cleanses Akai's ultimate."
+  },
+  {
+   "counter": "lesley",
+   "target": "akai",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Best anti-tank into Akai \u2014 out of range of his spin."
+  },
+  {
+   "counter": "karrie",
+   "target": "akai",
+   "kind": "not",
+   "points": null,
+   "status": "confirmed",
+   "why": "Gets spun by Akai's ultimate, so the anti-tank damage doesn't land."
+  },
+  {
+   "counter": "x-borg",
+   "target": "akai",
+   "kind": "not",
+   "points": null,
+   "status": "confirmed",
+   "why": "Gets spun by Akai's ultimate, so the anti-tank damage doesn't land."
+  },
+  {
+   "counter": "dyrroth",
+   "target": "akai",
+   "kind": "not",
+   "points": null,
+   "status": "confirmed",
+   "why": "Gets spun by Akai's ultimate, so the anti-tank damage doesn't land."
+  },
+  {
+   "counter": "aldous",
+   "target": "lesley",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Late game Aldous bursts far-back squishies \u2014 needs good timing."
+  },
+  {
+   "counter": "aldous",
+   "target": "layla",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Late game Aldous bursts far-back squishies \u2014 needs good timing."
+  },
+  {
+   "counter": "baxia",
+   "target": "alice",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Baxia's anti-heal shuts down Alice's sustain."
+  },
+  {
+   "counter": "karrie",
+   "target": "alice",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Kites Alice and shreds her with true damage."
+  },
+  {
+   "counter": "lunox",
+   "target": "alice",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Kites Alice from range."
+  },
+  {
+   "counter": "alpha",
+   "target": "alice",
+   "kind": "conditional",
+   "points": null,
+   "status": "confirmed",
+   "why": "Alpha can win early; Alice out-sustains him late."
+  },
+  {
+   "counter": "alice",
+   "target": "alpha",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Late game Alice mostly out-sustains Alpha."
+  },
+  {
+   "counter": "franco",
+   "target": "alice",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Franco's suppress is strong before Alice gets her stacks."
+  },
+  {
+   "counter": "alpha",
+   "target": "belerick",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "True damage melts Belerick."
+  },
+  {
+   "counter": "alpha",
+   "target": "carmilla",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "True damage melts Carmilla."
+  },
+  {
+   "counter": "franco",
+   "target": "alucard",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Hard crowd control locks Alucard down before he can lifesteal."
+  },
+  {
+   "counter": "kaja",
+   "target": "alucard",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Hard crowd control locks Alucard down before he can lifesteal."
+  },
+  {
+   "counter": "chou",
+   "target": "alucard",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Hard crowd control locks Alucard down before he can lifesteal."
+  },
+  {
+   "counter": "baxia",
+   "target": "alucard",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Anti-heal cuts Alucard's lifesteal."
+  },
+  {
+   "counter": "argus",
+   "target": "kadita",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Argus survives the burst combos that usually delete a solo target."
+  },
+  {
+   "counter": "argus",
+   "target": "eudora",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Argus survives the burst combos that usually delete a solo target."
+  },
+  {
+   "counter": "argus",
+   "target": "tigreal",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Argus survives the burst combos that usually delete a solo target."
+  },
+  {
+   "counter": "chang-e",
+   "target": "argus",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Keeps distance and kites Argus."
+  },
+  {
+   "counter": "lesley",
+   "target": "argus",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Keeps distance and kites Argus."
+  },
+  {
+   "counter": "granger",
+   "target": "argus",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Keeps distance and kites Argus."
+  },
+  {
+   "counter": "beatrix",
+   "target": "argus",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Keeps distance and kites Argus."
+  },
+  {
+   "counter": "phoveus",
+   "target": "arlott",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Cancels Arlott's dashes, out-sustains him and teleports onto him."
+  },
+  {
+   "counter": "minsitthar",
+   "target": "arlott",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Minsitthar's ultimate cancels Arlott's dashes."
+  },
+  {
+   "counter": "khufra",
+   "target": "arlott",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Khufra cancels Arlott's dashes."
+  },
+  {
+   "counter": "kaja",
+   "target": "arlott",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Kaja locks Arlott down."
   }
  ],
  "synergies": [
   {
    "hero_a": "alice",
    "hero_b": "angela",
-   "points": 4,
+   "points": 6,
    "status": "confirmed",
-   "why": "Angela makes Alice far stronger."
+   "why": "Angela makes Alice S tier (A tier without her)."
   },
   {
    "hero_a": "pharsa",
@@ -965,6 +5774,69 @@
    "points": 2,
    "status": "theory",
    "why": "Armor-break combo: Dyrroth shreds armor for Saber's burst."
+  },
+  {
+   "hero_a": "aamon",
+   "hero_b": "alice",
+   "points": 2,
+   "status": "confirmed",
+   "why": "Frontliner who exposes the backline for Aamon to finish."
+  },
+  {
+   "hero_a": "aamon",
+   "hero_b": "minotaur",
+   "points": 2,
+   "status": "confirmed",
+   "why": "Frontliner who exposes the backline for Aamon to finish."
+  },
+  {
+   "hero_a": "aamon",
+   "hero_b": "lapu-lapu",
+   "points": 2,
+   "status": "confirmed",
+   "why": "Frontliner who exposes the backline for Aamon to finish."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "lukas",
+   "points": 3,
+   "status": "confirmed",
+   "why": "Angela's ultimate keeps Lukas in fights."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "lancelot",
+   "points": 3,
+   "status": "confirmed",
+   "why": "In-and-out burst assassin \u2014 most viable Angela partner."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "gusion",
+   "points": 3,
+   "status": "confirmed",
+   "why": "In-and-out burst assassin \u2014 most viable Angela partner."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "hayabusa",
+   "points": 3,
+   "status": "confirmed",
+   "why": "In-and-out burst assassin \u2014 most viable Angela partner."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "yi-sun-shin",
+   "points": 2,
+   "status": "confirmed",
+   "why": "High-skill assassin Angela can follow in."
+  },
+  {
+   "hero_a": "angela",
+   "hero_b": "nolan",
+   "points": 2,
+   "status": "confirmed",
+   "why": "High-skill assassin Angela can follow in."
   }
  ],
  "item_advice": [
@@ -972,25 +5844,85 @@
    "trigger": "enemy:gloo",
    "item": "Winter Crown",
    "status": "confirmed",
-   "why": "Hard counters Gloo."
-  },
-  {
-   "trigger": "enemy_tag:thick>=2",
-   "item": "Malefic Roar",
-   "status": "confirmed",
-   "why": "Buy Malefic Roar (penetration) instead of Malefic Gun (range) against thick heroes."
+   "why": "Hard counters Gloo.",
+   "for_role": null
   },
   {
    "trigger": "enemy:lukas",
    "item": "Dominance Ice",
    "status": "confirmed",
-   "why": "Lukas's skills lifesteal — anti-heal is required."
+   "why": "Lukas's skills lifesteal \u2014 anti-heal is required.",
+   "for_role": null
   },
   {
    "trigger": "enemy:estes",
    "item": "Dominance Ice / Necklace of Durance / Sea Halberd",
    "status": "theory",
-   "why": "Anti-heal cuts Estes's healing."
+   "why": "Anti-heal cuts Estes's healing.",
+   "for_role": null
+  },
+  {
+   "trigger": "enemy_tag:thick>=2",
+   "item": "Malefic Roar",
+   "for_role": "gold",
+   "status": "confirmed",
+   "why": "Buy Malefic Roar (penetration) instead of Malefic Gun (range) against thick heroes."
+  },
+  {
+   "trigger": "enemy_damage:magic>=3",
+   "item": "Athena's Shield / Radiant Armor",
+   "for_role": "roam",
+   "status": "theory",
+   "why": "Enemy is magic-heavy \u2014 the frontline needs magic defense."
+  },
+  {
+   "trigger": "enemy_damage:physical>=3",
+   "item": "Antique Cuirass / Blade Armor",
+   "for_role": "roam",
+   "status": "theory",
+   "why": "Enemy is physical-heavy \u2014 the frontline needs physical defense."
+  },
+  {
+   "trigger": "enemy_tag:sustain>=3",
+   "item": "Sea Halberd",
+   "for_role": "gold",
+   "status": "theory",
+   "why": "Anti-heal for the physical damage dealer against a sustain-heavy draft."
+  },
+  {
+   "trigger": "enemy_tag:sustain>=3",
+   "item": "Necklace of Durance",
+   "for_role": "mid",
+   "status": "theory",
+   "why": "Anti-heal for the mage against a sustain-heavy draft."
+  },
+  {
+   "trigger": "enemy:akai",
+   "item": "Purify (spell)",
+   "for_role": null,
+   "status": "confirmed",
+   "why": "Purify escapes Akai's ultimate."
+  },
+  {
+   "trigger": "enemy:alice",
+   "item": "Dominance Ice / Necklace of Durance",
+   "for_role": null,
+   "status": "confirmed",
+   "why": "Anti-heal is the key answer to Alice's sustain."
+  },
+  {
+   "trigger": "enemy:alucard",
+   "item": "Dominance Ice / Sea Halberd",
+   "for_role": null,
+   "status": "confirmed",
+   "why": "Anti-heal cuts Alucard's lifesteal."
+  },
+  {
+   "trigger": "enemy:arlott",
+   "item": "Dominance Ice / Sea Halberd",
+   "for_role": null,
+   "status": "confirmed",
+   "why": "Arlott usually builds lifesteal \u2014 bring anti-heal."
   }
  ],
  "rules": [
@@ -1004,7 +5936,7 @@
    "id": "enchanter-no-frontline",
    "weight": 15,
    "status": "confirmed",
-   "description": "Enchanter (Rafaela/Floryn/Estes) with no tank to shield them — drops massively."
+   "description": "Enchanter support (Rafaela/Floryn/Estes/Angela) with no tank and no other sustain hero on the team \u2014 drops massively."
   },
   {
    "id": "no-anti-tank",
@@ -1016,7 +5948,7 @@
    "id": "single-damage-type",
    "weight": 8,
    "status": "confirmed",
-   "description": "All damage of one type — easy to itemize against."
+   "description": "All damage of one type \u2014 easy to itemize against."
   },
   {
    "id": "no-split-answer",
@@ -1035,6 +5967,126 @@
    "weight": 5,
    "status": "confirmed",
    "description": "Split push beats slow tank/enchanter teamfight drafts (e.g. Estes, Belerick)."
+  },
+  {
+   "id": "no-jungler",
+   "weight": 8,
+   "status": "theory",
+   "description": "No hero who can jungle \u2014 the team falls behind on farm and early objectives."
+  },
+  {
+   "id": "no-anti-heal",
+   "weight": 4,
+   "status": "theory",
+   "description": "Enemy has 3+ high-sustain heroes and this team has no anti-heal hero."
+  },
+  {
+   "id": "setting-curve",
+   "weight": 40,
+   "status": "theory",
+   "description": "Setting: how fast points turn into advantage (higher = flatter). At 40: 10 pts \u2248 +11, 20 pts \u2248 +20, 40 pts \u2248 +32."
+  },
+  {
+   "id": "setting-phase-weight",
+   "weight": 4,
+   "status": "theory",
+   "description": "Setting: points per 1.0 difference in average early/mid/late power between the teams."
+  },
+  {
+   "id": "setting-counter-risk",
+   "weight": 0.5,
+   "status": "theory",
+   "description": "Setting (live mode): share of a counter's points a pick loses while that counter is still available to the enemy."
+  },
+  {
+   "id": "role-overlap",
+   "weight": 3,
+   "status": "theory",
+   "description": "Live mode: a pick whose roles are all already filled by teammates loses this many points."
+  },
+  {
+   "id": "setting-denial",
+   "weight": 0.3,
+   "status": "theory",
+   "description": "Setting (live mode): share of a hero's value to the enemy added to its pick score (taking it denies them)."
+  },
+  {
+   "id": "dive-beats-poke",
+   "weight": 3,
+   "status": "theory",
+   "description": "Dive drafts reach poke heroes before poke wears them down."
+  },
+  {
+   "id": "poke-beats-front-to-back",
+   "weight": 3,
+   "status": "theory",
+   "description": "Poke wears down a slow front-to-back team before it can engage."
+  },
+  {
+   "id": "front-to-back-beats-dive",
+   "weight": 3,
+   "status": "theory",
+   "description": "A front-to-back team peels and punishes divers who jump in."
+  },
+  {
+   "id": "tier-s",
+   "weight": 4,
+   "status": "theory",
+   "description": "Points for each S-tier (meta) hero picked."
+  },
+  {
+   "id": "tier-a",
+   "weight": 2,
+   "status": "theory",
+   "description": "Points for each A-tier hero picked."
+  },
+  {
+   "id": "tier-c",
+   "weight": -2,
+   "status": "theory",
+   "description": "Points for each C-tier hero picked (negative = weak in the meta)."
+  },
+  {
+   "id": "tier-d",
+   "weight": -4,
+   "status": "theory",
+   "description": "Points for each D-tier hero picked (negative = out of the meta)."
+  },
+  {
+   "id": "rank-bias",
+   "weight": 0.75,
+   "status": "confirmed",
+   "description": "Points per step of a hero's rank sensitivity: added in low-rank games, subtracted in high-rank games."
+  },
+  {
+   "id": "type-fit",
+   "weight": 3,
+   "status": "theory",
+   "description": "Points when a hero is strong against the enemy's draft type (or lost when weak against it)."
+  },
+  {
+   "id": "stealth-vs-targeted",
+   "weight": 3,
+   "status": "theory",
+   "description": "A stealth hero (e.g. Aamon) against 2+ enemies that rely on targeting skills."
+  },
+  {
+   "id": "trait-fit",
+   "weight": 2,
+   "status": "theory",
+   "description": "Points when a hero faces enemy heroes with a trait it is strong against (or lost when weak against it). Counted once per trait."
+  },
+  {
+   "id": "setting-solo-queue",
+   "weight": 0.5,
+   "status": "theory",
+   "description": "Setting: in solo queue, rank-sensitive heroes count as this many ranks lower (party queue: this many higher)."
+  },
+  {
+   "id": "ally-trait-fit",
+   "weight": 2,
+   "status": "theory",
+   "description": "Points when a hero has teammates with a trait it works well with (e.g. Arlott with crowd control). Counted once per trait."
   }
  ]
 }

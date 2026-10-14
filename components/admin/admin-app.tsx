@@ -138,7 +138,7 @@ export function AdminApp() {
           <ItemsTab
             rows={kb.item_advice}
             onOpen={(row) => setEditing({ type: "item", row })}
-            onAdd={canEdit ? () => setEditing({ type: "item", row: { trigger: "enemy:", item: "", why: "", status: "theory" } }) : undefined}
+            onAdd={canEdit ? () => setEditing({ type: "item", row: { trigger: "enemy:", item: "", for_role: null, why: "", status: "theory" } }) : undefined}
           />
         </TabsContent>
         <TabsContent value="rules">

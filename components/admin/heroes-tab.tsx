@@ -16,12 +16,13 @@ import { HeroAvatar, HeroChip } from "@/components/hero-avatar";
 import { StatusToggle, TheoryBadge } from "@/components/status";
 import { HEROES, heroName } from "@/lib/heroes";
 import {
-  MATCHUP_KINDS, TAGS, emptyProfile, type HeroProfile, type KB, type Matchup, type Synergy,
+  ALL_DRAFT_TYPES, DAMAGE_TYPES, MATCHUP_KINDS, RANK_BIAS, RATINGS, ROLES, TAGS, TIERS, TRIGGER_TRAITS, emptyProfile,
+  type DamageType, type HeroProfile, type KB, type Matchup, type RatingKey, type Synergy, type Tier,
 } from "@/lib/kb";
 import { saveRow } from "@/lib/kb-db";
 import { cn } from "@/lib/utils";
 
-type Filter = "all" | "meta" | "ban" | "profiled";
+type Filter = "all" | "meta" | "ban" | "review";
 const KIND_LABEL = new Map(MATCHUP_KINDS.map((k) => [k.value, k.label]));
 
 export function HeroesTab({
@@ -43,7 +44,7 @@ export function HeroesTab({
     if (query && !h.name.toLowerCase().includes(query.toLowerCase())) return false;
     if (filter === "meta") return p?.is_meta;
     if (filter === "ban") return p?.ban_recommended;
-    if (filter === "profiled") return Boolean(p);
+    if (filter === "review") return !p?.specs_reviewed;
     return true;
   });
 
@@ -59,7 +60,7 @@ export function HeroesTab({
             <ToggleGroupItem value="all">All</ToggleGroupItem>
             <ToggleGroupItem value="meta">Meta</ToggleGroupItem>
             <ToggleGroupItem value="ban">Ban</ToggleGroupItem>
-            <ToggleGroupItem value="profiled">Noted</ToggleGroupItem>
+            <ToggleGroupItem value="review">Review</ToggleGroupItem>
           </ToggleGroup>
         </div>
         <div className="max-h-72 overflow-y-auto px-2 md:max-h-none md:flex-1">
@@ -118,6 +119,15 @@ function HeroEditor({
   const slug = p.slug;
   const set = <K extends keyof HeroProfile>(key: K, value: HeroProfile[K]) => {
     setP((cur) => ({ ...cur, [key]: value }));
+    setDirty(true);
+  };
+  const setRating = (key: RatingKey, value: number | null) => {
+    setP((cur) => {
+      const ratings = { ...cur.ratings };
+      if (value == null) delete ratings[key];
+      else ratings[key] = value;
+      return { ...cur, ratings };
+    });
     setDirty(true);
   };
 
@@ -181,6 +191,25 @@ function HeroEditor({
                 <Input value={p.ban_note} placeholder="Shown when hovering the ban" onChange={(e) => set("ban_note", e.target.value)} />
               </div>
             )}
+            <div className="space-y-1.5">
+              <Label>Meta tier</Label>
+              <ToggleGroup variant="outline" size="sm" spacing={0} value={p.tier ? [p.tier] : []}
+                onValueChange={(v) => set("tier", (v[0] as Tier) ?? null)} disabled={!canEdit}>
+                {TIERS.map((t) => (
+                  <Tooltip key={t.value}>
+                    <TooltipTrigger render={<ToggleGroupItem value={t.value} className="w-9" />}>{t.value}</TooltipTrigger>
+                    <TooltipContent>{t.hint}</TooltipContent>
+                  </Tooltip>
+                ))}
+              </ToggleGroup>
+            </div>
+            <div className="space-y-1.5">
+              <Label>Rank sensitivity</Label>
+              <ToggleGroup variant="outline" size="sm" spacing={0} value={[String(p.rank_bias ?? 0)]} className="flex-wrap"
+                onValueChange={(v) => v[0] != null && set("rank_bias", Number(v[0]))} disabled={!canEdit}>
+                {RANK_BIAS.map((r) => <ToggleGroupItem key={r.value} value={String(r.value)}>{r.label}</ToggleGroupItem>)}
+              </ToggleGroup>
+            </div>
           </CardContent>
         </Card>
 
@@ -204,8 +233,88 @@ function HeroEditor({
 
         <Card className="lg:col-span-2">
           <CardHeader>
+            <CardTitle className="flex flex-wrap items-center gap-2">
+              Specs
+              {!p.specs_reviewed && <Badge variant="outline" className="border-dashed border-amber-400/60 text-amber-300">draft — review me</Badge>}
+            </CardTitle>
+            <CardDescription>Damage, roles and 0–5 ratings the composition rules use. Hover a rating for what it means.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-5">
+            <div className="flex flex-wrap gap-x-8 gap-y-4">
+              <div className="space-y-1.5">
+                <Label>Damage type</Label>
+                <ToggleGroup variant="outline" size="sm" spacing={0} value={p.damage_type ? [p.damage_type] : []}
+                  onValueChange={(v) => set("damage_type", (v[0] as DamageType) ?? null)} disabled={!canEdit}>
+                  {DAMAGE_TYPES.map((d) => <ToggleGroupItem key={d.value} value={d.value}>{d.label}</ToggleGroupItem>)}
+                </ToggleGroup>
+              </div>
+              <div className="space-y-1.5">
+                <Label>Roles it can play</Label>
+                <ToggleGroup multiple variant="outline" size="sm" spacing={0} value={p.roles}
+                  onValueChange={(v) => set("roles", v as string[])} disabled={!canEdit}>
+                  {ROLES.map((r) => <ToggleGroupItem key={r.value} value={r.value}>{r.label}</ToggleGroupItem>)}
+                </ToggleGroup>
+              </div>
+              <div className="space-y-1.5">
+                <Label>Difficulty (1 easy – 5 hard)</Label>
+                <ToggleGroup variant="outline" size="sm" spacing={0} value={p.difficulty ? [String(p.difficulty)] : []}
+                  onValueChange={(v) => set("difficulty", v[0] ? Number(v[0]) : null)} disabled={!canEdit}>
+                  {[1, 2, 3, 4, 5].map((n) => <ToggleGroupItem key={n} value={String(n)} className="w-8">{n}</ToggleGroupItem>)}
+                </ToggleGroup>
+              </div>
+            </div>
+            <div className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+              {RATINGS.map((r) => (
+                <div key={r.key} className="flex items-center justify-between gap-3">
+                  <Tooltip>
+                    <TooltipTrigger render={<span className="cursor-help text-sm underline decoration-dotted underline-offset-4" />}>{r.label}</TooltipTrigger>
+                    <TooltipContent>{r.hint}</TooltipContent>
+                  </Tooltip>
+                  <ToggleGroup variant="outline" size="sm" spacing={0} value={p.ratings?.[r.key] != null ? [String(p.ratings[r.key])] : []}
+                    onValueChange={(v) => setRating(r.key, v[0] != null ? Number(v[0]) : null)} disabled={!canEdit}>
+                    {[0, 1, 2, 3, 4, 5].map((n) => <ToggleGroupItem key={n} value={String(n)} className="w-7">{n}</ToggleGroupItem>)}
+                  </ToggleGroup>
+                </div>
+              ))}
+            </div>
+            <label className="flex items-center justify-between gap-4 rounded-lg bg-muted/50 p-3 text-sm">
+              <span>Specs reviewed <span className="block text-xs text-muted-foreground">Turn on once you&apos;ve checked these values</span></span>
+              <Switch checked={p.specs_reviewed} onCheckedChange={(v) => set("specs_reviewed", v)} disabled={!canEdit} />
+            </label>
+          </CardContent>
+        </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Good and bad against</CardTitle>
+            <CardDescription>Draft types (e.g. Akai vs dive) and hero traits (e.g. Alpha vs thick heroes, Alucard vs crowd control) this hero is especially good or bad against.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {(["strong_vs_types", "weak_vs_types"] as const).map((key) => (
+              <div key={key} className="space-y-1.5">
+                <Label>{key === "strong_vs_types" ? "Strong against draft types" : "Weak against draft types"}</Label>
+                <ToggleGroup multiple variant="outline" size="sm" value={p[key] ?? []} className="flex-wrap"
+                  onValueChange={(v) => set(key, v as string[])} disabled={!canEdit}>
+                  {ALL_DRAFT_TYPES.map((t) => <ToggleGroupItem key={t} value={t}>{t}</ToggleGroupItem>)}
+                </ToggleGroup>
+              </div>
+            ))}
+            {(["strong_vs_traits", "weak_vs_traits", "good_with_traits"] as const).map((key) => (
+              <div key={key} className="space-y-1.5">
+                <Label>{{ strong_vs_traits: "Strong against heroes that are…", weak_vs_traits: "Weak against heroes that are…", good_with_traits: "Good with allies that are…" }[key]}</Label>
+                <ToggleGroup multiple variant="outline" size="sm" value={p[key] ?? []} className="flex-wrap"
+                  onValueChange={(v) => set(key, v as string[])} disabled={!canEdit}>
+                  {TRIGGER_TRAITS.map((t) => <ToggleGroupItem key={t.value} value={t.value}>{t.label}</ToggleGroupItem>)}
+                </ToggleGroup>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader>
             <CardTitle>Tags</CardTitle>
-            <CardDescription>What this hero brings — used by the composition rules (e.g. &quot;no frontline&quot;).</CardDescription>
+            <CardDescription>Yes/no traits used by the rules (e.g. thick heroes need anti-tank damage).</CardDescription>
           </CardHeader>
           <CardContent>
             <ToggleGroup multiple variant="outline" size="sm" value={p.tags} onValueChange={(v) => set("tags", v as string[])} disabled={!canEdit} className="flex-wrap">

@@ -12,7 +12,7 @@ import { HeroAvatar, HeroChip } from "@/components/hero-avatar";
 import { StatusBadge } from "@/components/status";
 import { heroName } from "@/lib/heroes";
 import {
-  MATCHUP_KINDS, MATCHUP_POINTS, TAG_LABEL, parseTrigger,
+  MATCHUP_KINDS, MATCHUP_POINTS, TRIGGER_TRAITS, parseTrigger,
   type Game, type ItemAdvice, type Matchup, type Rule, type Synergy,
 } from "@/lib/kb";
 import { cn } from "@/lib/utils";
@@ -129,10 +129,13 @@ export function SynergiesTab({ rows, onOpen, onAdd }: { rows: Synergy[]; onOpen:
   );
 }
 
+const TRAIT_LABEL = new Map(TRIGGER_TRAITS.map((t) => [t.value, t.label]));
+
 function TriggerLabel({ trigger }: { trigger: string }) {
   const t = parseTrigger(trigger);
   if (t.type === "hero") return <span className="flex items-center gap-2">Enemy has <HeroChip slug={t.hero} /></span>;
-  return <span>Enemy has {t.count}+ <b>{TAG_LABEL.get(t.tag) ?? t.tag}</b> heroes</span>;
+  if (t.type === "damage") return <span>Enemy has {t.count}+ <b>{t.damage}</b> damage heroes</span>;
+  return <span>Enemy has {t.count}+ <b>{TRAIT_LABEL.get(t.tag) ?? t.tag}</b> heroes</span>;
 }
 
 export function ItemsTab({ rows, onOpen, onAdd }: { rows: ItemAdvice[]; onOpen: (i: ItemAdvice) => void; onAdd?: () => void }) {
@@ -147,6 +150,7 @@ export function ItemsTab({ rows, onOpen, onAdd }: { rows: ItemAdvice[]; onOpen: 
             <TableRow>
               <TableHead>When</TableHead>
               <TableHead>Buy</TableHead>
+              <TableHead>Who</TableHead>
               <TableHead className="hidden md:table-cell">Why</TableHead>
               <TableHead>Status</TableHead>
             </TableRow>
@@ -156,11 +160,12 @@ export function ItemsTab({ rows, onOpen, onAdd }: { rows: ItemAdvice[]; onOpen: 
               <TableRow key={i.id ?? `${i.trigger}-${i.item}`} onClick={() => onOpen(i)} className="cursor-pointer">
                 <TableCell><TriggerLabel trigger={i.trigger} /></TableCell>
                 <TableCell className="font-medium">{i.item}</TableCell>
+                <TableCell className="text-muted-foreground capitalize">{i.for_role ?? "Team"}</TableCell>
                 <TableCell className="hidden max-w-80 truncate text-muted-foreground md:table-cell">{i.why}</TableCell>
                 <TableCell><StatusBadge status={i.status} /></TableCell>
               </TableRow>
             ))}
-            {!shown.length && <Empty cols={4} text="No item advice yet." />}
+            {!shown.length && <Empty cols={5} text="No item advice yet." />}
           </TableBody>
         </Table>
       </Card>

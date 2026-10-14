@@ -11,6 +11,7 @@ const lit = (v) => {
   if (v === null || v === undefined) return "null";
   if (typeof v === "boolean" || typeof v === "number") return String(v);
   if (Array.isArray(v)) return `array[${v.map(lit).join(", ")}]::text[]`;
+  if (typeof v === "object") return `${lit(JSON.stringify(v))}::jsonb`;
   return `'${String(v).replace(/'/g, "''")}'`;
 };
 
@@ -22,5 +23,7 @@ for (const [table, rows] of Object.entries(KB)) {
   out.push(rows.map((r) => `  (${cols.map((c) => lit(r[c])).join(", ")})`).join(",\n"));
   out.push("on conflict do nothing;", "");
 }
+// Seed values are already on the current scales, so mark one-time rescales as done.
+out.push("insert into applied_migrations (id) values ('004-rescale') on conflict do nothing;", "");
 fs.writeFileSync(path.join(root, "supabase/seed.sql"), out.join("\n"));
 console.log("wrote supabase/seed.sql");

@@ -9,8 +9,8 @@ import { HeroChip } from "@/components/hero-avatar";
 import { StatusToggle } from "@/components/status";
 import { heroName } from "@/lib/heroes";
 import {
-  ITEM_SUGGESTIONS, MATCHUP_KINDS, MATCHUP_POINTS, TAGS, formatTrigger, parseTrigger,
-  type Game, type ItemAdvice, type Matchup, type MatchupKind, type Rule, type Synergy, type Trigger,
+  DAMAGE_TYPES, ITEM_SUGGESTIONS, MATCHUP_KINDS, MATCHUP_POINTS, ROLES, TRIGGER_TRAITS, formatTrigger, parseTrigger,
+  type DamageType, type Game, type ItemAdvice, type Matchup, type MatchupKind, type Rule, type Synergy, type Trigger,
 } from "@/lib/kb";
 import { deleteRow, saveRow } from "@/lib/kb-db";
 import { EditSheet, Field } from "./edit-sheet";
@@ -114,30 +114,51 @@ export function ItemSheet({ row, onClose, onSaved, onDeleted, canEdit }: SheetPr
       onDelete={isNew ? undefined : async () => { await deleteRow("item_advice", "id", it.id!); onDeleted(it); }}
     >
       <Field label="When the enemy has">
-        <ToggleGroup variant="outline" size="sm" spacing={0} value={[trigger.type]}
-          onValueChange={(v) => v[0] && setTrigger(v[0] === "hero" ? { type: "hero", hero: "" } : { type: "tag", tag: "thick", count: 2 })}>
+        <ToggleGroup variant="outline" size="sm" spacing={0} value={[trigger.type]} className="flex-wrap"
+          onValueChange={(v) => {
+            if (v[0] === "hero") setTrigger({ type: "hero", hero: "" });
+            if (v[0] === "tag") setTrigger({ type: "tag", tag: "thick", count: 2 });
+            if (v[0] === "damage") setTrigger({ type: "damage", damage: "magic", count: 3 });
+          }}>
           <ToggleGroupItem value="hero">A specific hero</ToggleGroupItem>
           <ToggleGroupItem value="tag">Several heroes of a type</ToggleGroupItem>
+          <ToggleGroupItem value="damage">Mostly one damage type</ToggleGroupItem>
         </ToggleGroup>
       </Field>
-      {trigger.type === "hero" ? (
+      {trigger.type === "hero" && (
         <Field label="Enemy hero"><HeroCombobox value={trigger.hero} onChange={(v) => setTrigger({ type: "hero", hero: v })} /></Field>
-      ) : (
+      )}
+      {trigger.type !== "hero" && (
         <div className="grid grid-cols-[1fr_90px] gap-3">
-          <Field label="Hero type">
-            <select
-              className="h-8 w-full rounded-lg border border-input bg-input/30 px-2 text-sm"
-              value={trigger.tag}
-              onChange={(e) => setTrigger({ ...trigger, tag: e.target.value })}
-            >
-              {TAGS.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
-            </select>
-          </Field>
+          {trigger.type === "tag" ? (
+            <Field label="Hero type">
+              <select
+                className="h-8 w-full rounded-lg border border-input bg-input/30 px-2 text-sm"
+                value={trigger.tag}
+                onChange={(e) => setTrigger({ ...trigger, tag: e.target.value })}
+              >
+                {TRIGGER_TRAITS.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
+              </select>
+            </Field>
+          ) : (
+            <Field label="Damage type">
+              <ToggleGroup variant="outline" size="sm" spacing={0} value={[trigger.damage]}
+                onValueChange={(v) => v[0] && setTrigger({ ...trigger, damage: v[0] as DamageType })}>
+                {DAMAGE_TYPES.map((d) => <ToggleGroupItem key={d.value} value={d.value}>{d.label}</ToggleGroupItem>)}
+              </ToggleGroup>
+            </Field>
+          )}
           <Field label="At least">
             <Input type="number" min={1} max={5} value={trigger.count} onChange={(e) => setTrigger({ ...trigger, count: Number(e.target.value) || 1 })} />
           </Field>
         </div>
       )}
+      <Field label="Who should buy it" hint="Pick a role to show the advice under that hero; leave empty for the whole team.">
+        <ToggleGroup variant="outline" size="sm" spacing={0} value={it.for_role ? [it.for_role] : []} className="flex-wrap"
+          onValueChange={(v) => set("for_role", v[0] ?? null)}>
+          {ROLES.map((r) => <ToggleGroupItem key={r.value} value={r.value}>{r.label}</ToggleGroupItem>)}
+        </ToggleGroup>
+      </Field>
       <Field label="Item / battle spell" hint="Start typing for suggestions.">
         <Input list="item-suggestions" value={it.item} onChange={(e) => set("item", e.target.value)} />
         <datalist id="item-suggestions">{ITEM_SUGGESTIONS.map((i) => <option key={i} value={i} />)}</datalist>

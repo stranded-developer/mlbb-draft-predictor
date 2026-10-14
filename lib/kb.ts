@@ -6,6 +6,9 @@ import seed from "./seed.json";
 export type Status = "confirmed" | "theory";
 export type MatchupKind = "hard" | "soft" | "conditional" | "not";
 
+export type DamageType = "physical" | "magic" | "mixed";
+export type Ratings = Partial<Record<RatingKey, number>>;
+
 export type HeroProfile = {
   slug: string;
   is_meta: boolean;
@@ -17,7 +20,44 @@ export type HeroProfile = {
   power_late: number | null;
   notes: string;
   status: Status;
+  damage_type: DamageType | null;
+  roles: string[];
+  ratings: Ratings;
+  difficulty: number | null;
+  specs_reviewed: boolean;
+  tier: Tier | null;
+  rank_bias: number; // −2 (stronger in high ranks) … +2 (stronger in low ranks)
+  strong_vs_types: string[];
+  weak_vs_types: string[];
+  strong_vs_traits: string[]; // tags/ratings (see TRIGGER_TRAITS) this hero is good against
+  weak_vs_traits: string[];
+  good_with_traits: string[]; // traits it wants on its own team (e.g. Arlott with crowd control)
 };
+
+export type Tier = "S" | "A" | "B" | "C" | "D";
+export const TIERS: { value: Tier; hint: string }[] = [
+  { value: "S", hint: "Meta — swings drafts" },
+  { value: "A", hint: "Strong, close to meta" },
+  { value: "B", hint: "Average" },
+  { value: "C", hint: "Weak in the meta" },
+  { value: "D", hint: "Out of the meta" },
+];
+
+export const RANK_BIAS: { value: number; label: string }[] = [
+  { value: -2, label: "Much better high" },
+  { value: -1, label: "Better high" },
+  { value: 0, label: "Same" },
+  { value: 1, label: "Better low" },
+  { value: 2, label: "Much better low" },
+];
+
+// Draft-type labels (see classify in lib/engine.ts), grouped by axis.
+export const DRAFT_TYPES = {
+  plan: ["Split push", "Pickoff", "Teamfight"],
+  style: ["Front-to-back", "Poke", "Dive"],
+  tempo: ["Early pressure", "Late scaling"],
+};
+export const ALL_DRAFT_TYPES = [...DRAFT_TYPES.plan, ...DRAFT_TYPES.style, ...DRAFT_TYPES.tempo];
 
 export type Matchup = {
   id?: number;
@@ -42,6 +82,7 @@ export type ItemAdvice = {
   id?: number;
   trigger: string;
   item: string;
+  for_role: string | null;
   why: string;
   status: Status;
 };
@@ -91,9 +132,37 @@ export const MATCHUP_KINDS: { value: MatchupKind; label: string; hint: string }[
   { value: "not", label: "Not a counter", hint: "Looks like one on paper, isn't in practice" },
 ];
 
-// Capability tags used by composition rules.
+// 0–5 capability ratings (0 = none, 5 = among the best). Drive the composition rules and win conditions.
+// A real frontline is 4+; "thick" (needs anti-tank damage) is also 4+.
+export const RATINGS = [
+  { key: "frontline", label: "Frontline", hint: "Absorbs damage and protects the team (4+ = a real frontline)" },
+  { key: "cc", label: "Crowd control", hint: "Amount and reliability of stuns, slows, taunts" },
+  { key: "mobility", label: "Mobility", hint: "Dashes and gap-close — can reach or escape" },
+  { key: "wave_clear", label: "Wave clear", hint: "Clears minion waves and pushes fast" },
+  { key: "objective", label: "Objectives", hint: "Takes Lord, Turtle and turrets quickly" },
+  { key: "hg_defense", label: "High-ground defense", hint: "Holds base: wave clear, range and zone control" },
+  { key: "teamfight", label: "Teamfight", hint: "Area impact in 5v5 fights" },
+  { key: "pickoff", label: "Pickoff", hint: "Catches and bursts a single target" },
+  { key: "sustain", label: "Sustain", hint: "Healing, lifesteal and regeneration" },
+] as const;
+export type RatingKey = (typeof RATINGS)[number]["key"];
+
+export const ROLES = [
+  { value: "exp", label: "EXP" },
+  { value: "jungle", label: "Jungle" },
+  { value: "mid", label: "Mid" },
+  { value: "gold", label: "Gold" },
+  { value: "roam", label: "Roam" },
+];
+
+export const DAMAGE_TYPES: { value: DamageType; label: string }[] = [
+  { value: "physical", label: "Physical" },
+  { value: "magic", label: "Magic" },
+  { value: "mixed", label: "Mixed" },
+];
+
+// Yes/no traits used by composition rules (degrees live in RATINGS).
 export const TAGS: { value: string; label: string; hint: string }[] = [
-  { value: "frontline", label: "Frontline", hint: "Tank or tanky fighter who can shield the team" },
   { value: "thick", label: "Thick", hint: "High HP / very hard to kill — needs anti-tank damage" },
   { value: "enchanter", label: "Enchanter", hint: "Healer/buffer support that needs a frontline" },
   { value: "anti_tank", label: "Anti-tank", hint: "Damage that kills thick heroes (true or % damage)" },
@@ -101,10 +170,17 @@ export const TAGS: { value: string; label: string; hint: string }[] = [
   { value: "split", label: "Split pusher", hint: "Pushes side lanes fast on their own" },
   { value: "rush", label: "Rush", hint: "Sustain-heavy dive that can't be burst" },
   { value: "pickoff", label: "Pickoff", hint: "Catches and bursts single targets" },
+  { value: "dive", label: "Dive", hint: "All-in commit onto the backline" },
+  { value: "poke", label: "Poke", hint: "Damages from long range before fights start" },
   { value: "slow_teamfight", label: "Slow teamfight", hint: "Grouped tank/enchanter fighting style" },
   { value: "anti_dash", label: "Anti-dash", hint: "Stops dashes and blinks" },
   { value: "dash", label: "Dash-reliant", hint: "Kit depends on dashing" },
   { value: "anti_walking", label: "Anti-walking", hint: "Punishes heroes without mobility" },
+  { value: "anti_heal", label: "Anti-heal", hint: "Cuts enemy healing and shields from their kit" },
+  { value: "cleanse", label: "Cleanse", hint: "Removes or blocks crowd control for allies" },
+  { value: "stealth", label: "Stealth", hint: "Camouflage/invisibility — beats heroes that rely on targeting" },
+  { value: "global", label: "Global presence", hint: "Can affect fights anywhere on the map" },
+  { value: "targeted", label: "Relies on targeting", hint: "Point-and-click or lock-on skills — weak to stealth" },
 ];
 export const TAG_LABEL = new Map(TAGS.map((t) => [t.value, t.label]));
 
@@ -127,18 +203,35 @@ export function emptyProfile(slug: string): HeroProfile {
   return {
     slug, is_meta: false, ban_recommended: false, ban_note: "", tags: [],
     power_early: null, power_mid: null, power_late: null, notes: "", status: "theory",
+    damage_type: null, roles: [], ratings: {}, difficulty: null, specs_reviewed: false,
+    tier: null, rank_bias: 0, strong_vs_types: [], weak_vs_types: [], strong_vs_traits: [], weak_vs_traits: [], good_with_traits: [],
   };
 }
 
-// Item triggers are stored as "enemy:<slug>" or "enemy_tag:<tag>>=<n>".
-export type Trigger = { type: "hero"; hero: string } | { type: "tag"; tag: string; count: number };
+// Item triggers are stored as "enemy:<slug>", "enemy_tag:<tag or rating>>=<n>" or "enemy_damage:<type>>=<n>".
+// A rating in enemy_tag counts heroes rated 2 or higher in it (e.g. enemy_tag:sustain>=3).
+export type Trigger =
+  | { type: "hero"; hero: string }
+  | { type: "tag"; tag: string; count: number }
+  | { type: "damage"; damage: DamageType; count: number };
 
 export function parseTrigger(trigger: string): Trigger {
   const tag = trigger.match(/^enemy_tag:(\w+)>=(\d+)$/);
   if (tag) return { type: "tag", tag: tag[1], count: Number(tag[2]) };
+  const dmg = trigger.match(/^enemy_damage:(\w+)>=(\d+)$/);
+  if (dmg) return { type: "damage", damage: dmg[1] as DamageType, count: Number(dmg[2]) };
   return { type: "hero", hero: trigger.replace(/^enemy:/, "") };
 }
 
 export function formatTrigger(t: Trigger): string {
-  return t.type === "hero" ? `enemy:${t.hero}` : `enemy_tag:${t.tag}>=${t.count}`;
+  if (t.type === "hero") return `enemy:${t.hero}`;
+  if (t.type === "damage") return `enemy_damage:${t.damage}>=${t.count}`;
+  return `enemy_tag:${t.tag}>=${t.count}`;
 }
+
+// Things an item trigger can count: yes/no tags plus "rated 2+" in a rating.
+export const TRIGGER_TRAITS = [
+  { value: "lockdown", label: "Strong lockdown (CC 4+)" },
+  ...TAGS.map((t) => ({ value: t.value, label: t.label })),
+  ...RATINGS.map((r) => ({ value: r.key as string, label: `High ${r.label.toLowerCase()} (3+)` })),
+];

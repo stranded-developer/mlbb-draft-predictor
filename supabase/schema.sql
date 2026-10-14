@@ -5,6 +5,12 @@ create table if not exists admins (
   email text primary key
 );
 
+-- One-time data migrations already applied (see supabase/migrations).
+create table if not exists applied_migrations (
+  id text primary key,
+  applied_at timestamptz not null default now()
+);
+
 create table if not exists hero_profiles (
   slug text primary key,
   is_meta boolean not null default false,
@@ -16,6 +22,18 @@ create table if not exists hero_profiles (
   power_late smallint check (power_late between 1 and 5),
   notes text not null default '',
   status text not null default 'theory' check (status in ('confirmed', 'theory')),
+  damage_type text check (damage_type in ('physical', 'magic', 'mixed')),
+  roles text[] not null default '{}',
+  ratings jsonb not null default '{}',
+  difficulty smallint check (difficulty between 1 and 5),
+  specs_reviewed boolean not null default false,
+  tier text check (tier in ('S', 'A', 'B', 'C', 'D')),
+  rank_bias smallint not null default 0 check (rank_bias between -2 and 2),
+  strong_vs_types text[] not null default '{}',
+  weak_vs_types text[] not null default '{}',
+  strong_vs_traits text[] not null default '{}',
+  weak_vs_traits text[] not null default '{}',
+  good_with_traits text[] not null default '{}',
   updated_at timestamptz not null default now()
 );
 
@@ -46,6 +64,7 @@ create table if not exists item_advice (
   id bigint generated always as identity primary key,
   trigger text not null,
   item text not null,
+  for_role text check (for_role in ('exp', 'jungle', 'mid', 'gold', 'roam')),
   why text not null default '',
   status text not null default 'theory' check (status in ('confirmed', 'theory')),
   updated_at timestamptz not null default now(),

@@ -12,12 +12,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { analyze, suggestBans, suggestPicks, type Queue, type Rank, type Side } from "@/lib/engine";
 import { HEROES, heroName } from "@/lib/heroes";
 import { BANS_PER_TEAM } from "@/lib/kb";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/use-auth";
 import { useKb } from "@/lib/use-kb";
 import { cn } from "@/lib/utils";
+import { AnalysisPanel } from "./analysis-panel";
 import { HeroAvatar } from "./hero-avatar";
 import { TheoryBadge } from "./status";
 
@@ -25,6 +27,9 @@ const TEAM_SIZE = 5;
 type Group = "red" | "blue" | "redBan" | "blueBan";
 type Draft = Record<Group, (string | null)[]>;
 const GROUP_LABEL: Record<Group, string> = { red: "Red team", blue: "Blue team", redBan: "Red ban", blueBan: "Blue ban" };
+
+// Ranked pick order after bans: blue 1, red 2, blue 2, red 2, blue 2, red 1.
+const PICK_ORDER: Side[] = ["blue", "red", "red", "blue", "blue", "red", "red", "blue", "blue", "red"];
 
 const emptyDraft = (): Draft => ({
   red: Array(TEAM_SIZE).fill(null),
@@ -39,6 +44,11 @@ export function DraftBoard() {
   const [draft, setDraft] = useState<Draft>(emptyDraft);
   const [active, setActive] = useState<{ group: Group; index: number } | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [mode, setMode] = useState<"free" | "live">("free");
+  const [bansDone, setBansDone] = useState(false);
+  const [rank, setRank] = useState<Rank>("mid");
+  const [queue, setQueue] = useState<Queue>("solo");
+  const ctx = useMemo(() => ({ rank, queue }), [rank, queue]);
 
   const groupOf = (slug: string) =>
     (Object.keys(draft) as Group[]).find((g) => draft[g].includes(slug)) ?? null;
@@ -60,6 +70,22 @@ export function DraftBoard() {
   };
 
   const recBans = kb.hero_profiles.filter((p) => p.ban_recommended);
+  const picks = (g: Group) => draft[g].filter(Boolean) as string[];
+  const teams = { red: picks("red"), blue: picks("blue") };
+  const bans = [...picks("redBan"), ...picks("blueBan")];
+  const analysis = useMemo(() => (complete ? analyze(kb, teams, ctx) : null), [complete, kb, draft, ctx]); // eslint-disable-line react-hooks/exhaustive-deps
+  const nextSide = complete ? null : PICK_ORDER[filled];
+  const suggestions = useMemo(
+    () => (mode === "live" && nextSide ? suggestPicks(kb, nextSide, teams, bans, HEROES.map((h) => h.slug), ctx).slice(0, 8) : []),
+    [mode, nextSide, kb, draft, ctx], // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const pickFor = (side: Side, slug: string) => setSlot(side, draft[side].indexOf(null), slug);
+  // Ban phase: bans first, before any pick, until every ban slot is filled.
+  const banPhase = mode === "live" && !bansDone && filled === 0 && bans.length < BANS_PER_TEAM * 2;
+  const banSuggestions = useMemo(
+    () => (banPhase ? suggestBans(kb, bans, HEROES.map((h) => h.slug)).slice(0, 8) : []),
+    [banPhase, kb, draft], // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-8">
@@ -69,6 +95,25 @@ export function DraftBoard() {
           <SettingsIcon /> Backoffice
         </Button>
       </header>
+
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <ToggleGroup variant="outline" size="sm" spacing={0} value={[mode]} onValueChange={(v) => v[0] && setMode(v[0] as "free" | "live")}>
+          <ToggleGroupItem value="free">Free pick</ToggleGroupItem>
+          <ToggleGroupItem value="live">Live draft</ToggleGroupItem>
+        </ToggleGroup>
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">Rank</span>
+          <ToggleGroup variant="outline" size="sm" spacing={0} value={[rank]} onValueChange={(v) => v[0] && setRank(v[0] as Rank)}>
+            <ToggleGroupItem value="low" title="Below Epic">Low</ToggleGroupItem>
+            <ToggleGroupItem value="mid" title="Epic – Legend">Mid</ToggleGroupItem>
+            <ToggleGroupItem value="high" title="Mythic and above">High</ToggleGroupItem>
+          </ToggleGroup>
+          <ToggleGroup variant="outline" size="sm" spacing={0} value={[queue]} onValueChange={(v) => v[0] && setQueue(v[0] as Queue)}>
+            <ToggleGroupItem value="solo">Solo</ToggleGroupItem>
+            <ToggleGroupItem value="party">Party</ToggleGroupItem>
+          </ToggleGroup>
+        </div>
+      </div>
 
       <Card className="mb-8">
         <CardHeader>
@@ -106,8 +151,29 @@ export function DraftBoard() {
       <div className="my-5 text-center text-lg font-extrabold text-primary">VS</div>
       <TeamRow team="blue" draft={draft} onSlot={(group, index) => setActive({ group, index })} />
 
+      {banPhase && (
+        <Suggestions
+          title={
+            <span className="flex items-center justify-between gap-3">
+              Ban phase — suggested bans
+              <Button size="sm" variant="outline" onClick={() => setBansDone(true)}>Done banning</Button>
+            </span>
+          }
+          suggestions={banSuggestions}
+          onPick={addBan}
+        />
+      )}
+
+      {mode === "live" && nextSide && !banPhase && (
+        <Suggestions
+          title={<>Pick {filled + 1}: <span className={nextSide === "red" ? "text-team-red" : "text-team-blue"}>{nextSide === "red" ? "Red" : "Blue"}</span> — suggestions</>}
+          suggestions={suggestions}
+          onPick={(slug) => pickFor(nextSide, slug)}
+        />
+      )}
+
       <div className="mt-8 flex justify-center gap-3">
-        <Button variant="outline" size="lg" onClick={() => { setDraft(emptyDraft()); setShowResult(false); }}>
+        <Button variant="outline" size="lg" onClick={() => { setDraft(emptyDraft()); setShowResult(false); setBansDone(false); }}>
           Reset
         </Button>
         <Button size="lg" disabled={!complete} onClick={() => setShowResult(true)}>
@@ -118,17 +184,11 @@ export function DraftBoard() {
         {complete ? "Draft complete — ready to analyse." : `Pick all 10 heroes to analyse the draft (${filled}/10).`}
       </p>
 
-      {showResult && (
-        <Card className="mt-6">
-          <CardContent className="space-y-1 text-sm">
-            <p><span className="text-team-red">Red:</span> {draft.red.map((s) => heroName(s!)).join(", ")}</p>
-            <p><span className="text-team-blue">Blue:</span> {draft.blue.map((s) => heroName(s!)).join(", ")}</p>
-            <p className="text-muted-foreground">Advantage analysis coming next.</p>
-          </CardContent>
-        </Card>
-      )}
+      {showResult && analysis && <AnalysisPanel analysis={analysis} />}
 
-      {isAdmin && complete && <LogGame draft={draft} />}
+      {isAdmin && complete && (
+        <LogGame draft={draft} predicted={analysis ? (analysis.favored === "blue" ? -1 : 1) * analysis.advantage : null} />
+      )}
 
       <HeroPicker
         active={active}
@@ -260,7 +320,47 @@ function HeroPicker({
   );
 }
 
-function LogGame({ draft }: { draft: Draft }) {
+function Suggestions({
+  title, suggestions, onPick,
+}: {
+  title: React.ReactNode;
+  suggestions: ReturnType<typeof suggestPicks>;
+  onPick: (slug: string) => void;
+}) {
+  return (
+    <Card className="mt-6" size="sm">
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="grid gap-1 sm:grid-cols-2">
+        {suggestions.map((s) => (
+          <button
+            key={s.slug}
+            type="button"
+            onClick={() => onPick(s.slug)}
+            className="flex items-start gap-3 rounded-lg p-2 text-left transition hover:bg-accent"
+          >
+            <HeroAvatar slug={s.slug} className="size-10" />
+            <div className="min-w-0 flex-1">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="font-medium">{heroName(s.slug)}</span>
+                <span className="font-mono text-xs text-muted-foreground tabular-nums">{s.score > 0 ? "+" : ""}{s.score.toFixed(1)}</span>
+              </div>
+              {s.reasons.slice(0, 3).map((r) => (
+                <p key={r.text} className={cn("truncate text-xs", r.points < 0 ? "text-destructive" : "text-muted-foreground")}>
+                  {r.points > 0 ? "+" : ""}{+r.points.toFixed(1)} {r.text}{r.status === "theory" ? " (theory)" : ""}
+                </p>
+              ))}
+              {!s.reasons.length && <p className="text-xs text-muted-foreground">No notes affecting this pick yet.</p>}
+            </div>
+          </button>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+function LogGame({ draft, predicted }: { draft: Draft; predicted: number | null }) {
   const [winner, setWinner] = useState<string>("");
   const [rank, setRank] = useState("");
   const [minutes, setMinutes] = useState("");
@@ -273,7 +373,7 @@ function LogGame({ draft }: { draft: Draft }) {
     setSaving(true);
     const { error } = await supabase.from("games").insert({
       red: picks("red"), blue: picks("blue"), red_bans: picks("redBan"), blue_bans: picks("blueBan"),
-      winner, rank: rank.trim(), duration_min: Number(minutes) || null, reasoning: reasoning.trim(),
+      winner, rank: rank.trim(), duration_min: Number(minutes) || null, reasoning: reasoning.trim(), predicted,
     });
     setSaving(false);
     if (error) return toast.error(`Couldn't save: ${error.message}`);
