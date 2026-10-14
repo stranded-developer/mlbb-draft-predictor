@@ -1,0 +1,51 @@
+.admin { max-width: 1000px; margin: 0 auto; padding: 24px 16px 48px; }
+.admin-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.admin-head h1 { margin: 0; }
+.admin-head .btn { text-decoration: none; padding: 8px 14px; }
+
+.notice { padding: 10px 14px; border-radius: 10px; background: #3a2f12; color: var(--gold); font-size: 0.85rem; }
+.notice[hidden] { display: none; }
+
+.login, .account { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.login[hidden], .account[hidden] { display: none; }
+.account { color: var(--muted); font-size: 0.85rem; }
+
+.admin input, .admin select, .admin textarea {
+  font: inherit; color: var(--text); background: var(--bg);
+  border: 1px solid #34425f; border-radius: 8px; padding: 7px 9px;
+  min-width: 0;
+}
+.admin input:disabled, .admin select:disabled, .admin textarea:disabled { opacity: 0.75; }
+.admin textarea { resize: vertical; width: 100%; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tab {
+  font: inherit; font-size: 0.85rem; padding: 8px 14px; border-radius: 999px;
+  background: transparent; color: var(--text); border: 1px solid #34425f; cursor: pointer;
+}
+.tab.active { background: var(--gold); color: #1a1300; border-color: var(--gold); }
+
+.toolbar { display: flex; gap: 8px; }
+.toolbar input { flex: 1; }
+.toolbar .btn { padding: 8px 16px; }
+.toolbar .btn[hidden] { display: none; }
+
+.rows { display: grid; gap: 10px; margin-top: 12px; }
+.card { padding: 12px; border-radius: 12px; background: var(--panel); border: 1px solid transparent; }
+.card.is-theory { border-style: dashed; border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+.card.dirty { border-color: var(--blue); border-style: solid; }
+.card-fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 10px; align-items: end; }
+.card-actions { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+.card-actions:empty { display: none; }
+.card-actions .btn { padding: 6px 14px; font-size: 0.85rem; }
+.card-actions .btn:disabled { opacity: 0.4; cursor: default; }
+
+.field { display: grid; gap: 3px; font-size: 0.8rem; }
+.field-wide { grid-column: 1 / -1; }
+.field-label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.field-bool { display: flex; align-items: center; gap: 6px; padding-bottom: 8px; }
+.field-hero-title { font-weight: 700; font-size: 0.95rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; }
+.chip-img { width: 26px; height: 26px; border-radius: 50%; }

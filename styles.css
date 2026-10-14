@@ -171,3 +171,53 @@ h2 { margin: 10px 0; font-size: 1rem; text-transform: uppercase; letter-spacing:
   .slots { gap: 8px; }
   .slot-name { font-size: 0.65rem; }
 }
+
+/* Bans */
+.slots.bans { --slot: 48px; gap: 10px; margin: 6px 0 12px; }
+.team-blue .slots.bans { margin: 12px 0 6px; }
+.slots.bans .slot-circle { border-width: 2px; border-color: #5a6680; font-size: 1.1rem; }
+.slots.bans .slot.filled .slot-circle { box-shadow: none; filter: grayscale(1) brightness(0.7); }
+.slots.bans .slot-name { font-size: 0.65rem; color: var(--muted); }
+.hero.taken-ban .hero-img { filter: grayscale(1); }
+
+.rec-bans { margin-bottom: 20px; padding: 12px; background: var(--panel); border-radius: 12px; }
+.rec-bans h3 { margin: 0 0 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+.rec-bans-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.rec-ban {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  width: 64px; padding: 4px 0;
+  border: 0; border-radius: 8px; background: none; color: var(--text);
+  font: inherit; cursor: pointer;
+}
+.rec-ban:hover:not(:disabled) { background: #22304d; }
+.rec-ban .hero-img { width: 44px; height: 44px; }
+.rec-ban .hero-name { font-size: 0.68rem; }
+.rec-ban.used { opacity: 0.3; cursor: default; }
+
+@media (max-width: 520px) {
+  .slots.bans { --slot: 40px; gap: 6px; }
+}
+
+.theory {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px dashed var(--gold);
+  color: var(--gold);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Game log */
+.log-game { margin-top: 20px; padding: 16px; background: var(--panel); border-radius: 12px; text-align: left; display: grid; gap: 12px; }
+.log-game[hidden] { display: none; }
+.log-game h3 { margin: 0; font-size: 1rem; }
+.log-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.log-game label { display: grid; gap: 4px; font-size: 0.8rem; color: var(--muted); flex: 1 1 120px; }
+.log-game input, .log-game select, .log-game textarea {
+  font: inherit; color: var(--text); background: var(--bg);
+  border: 1px solid #34425f; border-radius: 8px; padding: 8px 10px;
+}
+.footer-links { margin-top: 32px; font-size: 0.8rem; }
+.footer-links a { color: var(--muted); }

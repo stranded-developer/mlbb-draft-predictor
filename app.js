@@ -1,8 +1,17 @@
 const TEAM_SIZE = 5;
-const draft = { red: Array(TEAM_SIZE).fill(null), blue: Array(TEAM_SIZE).fill(null) };
+const draft = {
+  red: Array(TEAM_SIZE).fill(null),
+  blue: Array(TEAM_SIZE).fill(null),
+  redBan: Array(BANS_PER_TEAM).fill(null),
+  blueBan: Array(BANS_PER_TEAM).fill(null),
+};
+const GROUP_LABEL = { red: "Red team", blue: "Blue team", redBan: "Red ban", blueBan: "Blue ban" };
 let activeSlot = null; // { team, index }
+let kb = { ...KB, source: "seed" };
+let signedIn = false;
 
 const heroById = new Map(HEROES.map((h) => [h.id, h]));
+const heroBySlug = new Map(HEROES.map((h) => [h.slug, h]));
 const picker = document.getElementById("picker");
 const grid = document.getElementById("hero-grid");
 const search = document.getElementById("search");
@@ -29,14 +38,13 @@ function avatar(hero) {
   return img;
 }
 
-function teamOf(heroId) {
-  if (draft.red.includes(heroId)) return "red";
-  if (draft.blue.includes(heroId)) return "blue";
-  return null;
+// Which slot group (pick or ban) a hero is already in, if any.
+function groupOf(heroId) {
+  return Object.keys(draft).find((g) => draft[g].includes(heroId)) || null;
 }
 
 function renderSlots() {
-  for (const team of ["red", "blue"]) {
+  for (const team of Object.keys(draft)) {
     const container = document.querySelector(`.slots[data-team="${team}"]`);
     container.replaceChildren(
       ...draft[team].map((heroId, index) => {
@@ -44,11 +52,11 @@ function renderSlots() {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "slot" + (hero ? " filled" : "");
-        btn.setAttribute("aria-label", `${team} team slot ${index + 1}${hero ? `: ${hero.name}` : ""}`);
+        btn.setAttribute("aria-label", `${GROUP_LABEL[team]} ${index + 1}${hero ? `: ${hero.name}` : ""}`);
         const circle = document.createElement("div");
         circle.className = "slot-circle";
         if (hero) circle.append(avatar(hero));
-        else circle.textContent = "+";
+        else circle.textContent = team.endsWith("Ban") ? "⊘" : "+";
         const label = document.createElement("span");
         label.className = "slot-name";
         label.textContent = hero ? hero.name : "";
@@ -58,8 +66,10 @@ function renderSlots() {
       })
     );
   }
+  renderRecBans();
   const filled = [...draft.red, ...draft.blue].filter(Boolean).length;
   analyseBtn.disabled = filled < TEAM_SIZE * 2;
+  document.getElementById("log-game").hidden = !signedIn || analyseBtn.disabled;
   hint.textContent = analyseBtn.disabled
     ? `Pick all 10 heroes to analyse the draft (${filled}/10).`
     : "Draft complete — ready to analyse.";
@@ -73,12 +83,12 @@ function renderGrid() {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "hero";
-      const taken = teamOf(hero.id);
-      // A hero can only be picked once across both teams (except re-picking the current slot).
+      const taken = groupOf(hero.id);
+      // A hero can only appear once across all picks and bans (except re-picking the current slot).
       if (taken && hero.id !== current) {
         btn.disabled = true;
-        btn.classList.add(`taken-${taken}`);
-        btn.title = `Already picked by ${taken} team`;
+        btn.classList.add(taken.endsWith("Ban") ? "taken-ban" : `taken-${taken}`);
+        btn.title = taken.endsWith("Ban") ? "Banned" : `Already picked by ${taken} team`;
       }
       const imgWrap = document.createElement("div");
       imgWrap.className = "hero-img";
@@ -96,7 +106,7 @@ function renderGrid() {
 function openPicker(team, index) {
   activeSlot = { team, index };
   document.getElementById("picker-title").textContent =
-    `${team === "red" ? "Red" : "Blue"} team — slot ${index + 1}`;
+    `${GROUP_LABEL[team]} — slot ${index + 1}`;
   search.value = "";
   renderGrid();
   picker.showModal();
@@ -107,7 +117,75 @@ function selectHero(heroId) {
   draft[activeSlot.team][activeSlot.index] = heroId;
   picker.close();
   result.hidden = true;
+  // Unproven knowledge is labelled "theory" everywhere it's shown.
+function theoryBadge() {
+  return Object.assign(document.createElement("span"), { className: "theory", textContent: "theory" });
+}
+
+const slugsOf = (group) => draft[group].filter(Boolean).map((id) => heroById.get(id).slug);
+
+document.getElementById("log-game").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = new FormData(e.target);
+  const status = document.getElementById("log-status");
+  const db = await Store.client();
+  const { error } = await db.from("games").insert({
+    red: slugsOf("red"),
+    blue: slugsOf("blue"),
+    red_bans: slugsOf("redBan"),
+    blue_bans: slugsOf("blueBan"),
+    winner: form.get("winner"),
+    reasoning: form.get("reasoning").trim(),
+    rank: form.get("rank").trim(),
+    duration_min: Number(form.get("duration_min")) || null,
+  });
+  status.textContent = error ? `Couldn't save: ${error.message}` : "Saved.";
+  if (!error) e.target.reset();
+});
+
+renderSlots();
+(async () => {
+  kb = await Store.loadKB();
+  signedIn = Boolean(await Store.session());
   renderSlots();
+})();
+}
+
+// Clicking a recommended ban fills the next empty ban slot, alternating blue then red.
+function addBan(heroId) {
+  if (groupOf(heroId)) return;
+  const count = (g) => draft[g].filter(Boolean).length;
+  const order = count("blueBan") <= count("redBan") ? ["blueBan", "redBan"] : ["redBan", "blueBan"];
+  const group = order.find((g) => draft[g].includes(null));
+  if (!group) return;
+  draft[group][draft[group].indexOf(null)] = heroId;
+  renderSlots();
+}
+
+function renderRecBans() {
+  const list = document.getElementById("rec-bans");
+  const recs = kb.hero_profiles.filter((p) => p.ban_recommended && heroBySlug.has(p.slug));
+  list.replaceChildren(
+    ...recs.map(({ slug, ban_note: why, status }) => {
+      const hero = heroBySlug.get(slug);
+      const taken = groupOf(hero.id);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "rec-ban" + (taken ? " used" : "");
+      btn.disabled = Boolean(taken);
+      btn.title = why;
+      const imgWrap = document.createElement("div");
+      imgWrap.className = "hero-img";
+      imgWrap.append(avatar(hero));
+      const name = document.createElement("span");
+      name.className = "hero-name";
+      name.textContent = hero.name;
+      btn.append(imgWrap, name);
+      if (status === "theory") btn.append(theoryBadge());
+      btn.addEventListener("click", () => addBan(hero.id));
+      return btn;
+    })
+  );
 }
 
 search.addEventListener("input", renderGrid);
@@ -121,8 +199,7 @@ document.getElementById("clear-slot").addEventListener("click", () => selectHero
 picker.addEventListener("click", (e) => { if (e.target === picker) picker.close(); });
 
 document.getElementById("reset").addEventListener("click", () => {
-  draft.red.fill(null);
-  draft.blue.fill(null);
+  Object.values(draft).forEach((slots) => slots.fill(null));
   result.hidden = true;
   renderSlots();
 });

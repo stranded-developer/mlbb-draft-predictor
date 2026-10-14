@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draft Backoffice</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="admin">
+    <header class="admin-head">
+      <h1>Draft Backoffice</h1>
+      <a href="index.html" class="btn btn-ghost">← Draft</a>
+    </header>
+
+    <p id="db-status" class="notice"></p>
+
+    <form id="login" class="login" hidden>
+      <input name="email" type="email" placeholder="Email" autocomplete="username" required>
+      <input name="password" type="password" placeholder="Password" autocomplete="current-password" required>
+      <button class="btn btn-primary" type="submit">Sign in</button>
+      <p id="login-status" class="hint"></p>
+    </form>
+    <div id="account" class="account" hidden>
+      <span id="account-email"></span>
+      <button id="logout" class="btn btn-ghost" type="button">Sign out</button>
+    </div>
+
+    <nav id="tabs" class="tabs"></nav>
+    <div class="toolbar">
+      <input id="filter" type="search" placeholder="Filter by hero or text…">
+      <button id="add-row" class="btn btn-primary" type="button">+ Add</button>
+    </div>
+    <p id="tab-help" class="hint"></p>
+    <div id="rows" class="rows"></div>
+  </main>
+
+  <datalist id="hero-options"></datalist>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+  <script src="heroes.js"></script>
+  <script src="data/knowledge.js"></script>
+  <script src="data/store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
