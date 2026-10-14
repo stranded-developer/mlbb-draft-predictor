@@ -4,10 +4,6 @@ import Link from "next/link";
 import { useMemo, useState, type ReactNode } from "react";
 import { BanIcon, PlusIcon, SettingsIcon, Undo2Icon } from "lucide-react";
 import { toast } from "sonner";
-import {
-  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription,
-  AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -49,7 +45,6 @@ const emptyDraft = (): Draft => ({
   redBan: Array(BANS_PER_TEAM).fill(null),
   blueBan: Array(BANS_PER_TEAM).fill(null),
 });
-const isEmpty = (d: Draft) => Object.values(d).every((slots) => slots.every((s) => !s));
 const filledOf = (slots: (string | null)[]) => slots.filter(Boolean) as string[];
 
 export function DraftBoard() {
@@ -58,7 +53,6 @@ export function DraftBoard() {
   // Each mode keeps its own board, so switching back restores where you left off.
   const [boards, setBoards] = useState<Record<Mode, Draft>>(() => ({ free: emptyDraft(), live: emptyDraft() }));
   const [mode, setMode] = useState<Mode>("free");
-  const [pendingMode, setPendingMode] = useState<Mode | null>(null);
   const [active, setActive] = useState<{ group: Group; index: number } | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [bansDone, setBansDone] = useState(false);
@@ -106,10 +100,10 @@ export function DraftBoard() {
     setBansDone(false);
   };
 
-  const requestMode = (next: Mode) => {
-    if (next === mode) return;
-    if (isEmpty(draft) && isEmpty(boards[next])) setMode(next);
-    else setPendingMode(next);
+  // Each mode keeps its own board, so switching never loses anything.
+  const switchMode = (next: Mode) => {
+    setMode(next);
+    setShowResult(false);
   };
 
   const analysis = useMemo(() => (complete ? analyze(kb, teams, ctx) : null), [complete, kb, draft, ctx]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -138,7 +132,7 @@ export function DraftBoard() {
     <main className="mx-auto w-full max-w-7xl px-3 py-3 sm:px-4">
       <header className="mb-3 flex flex-wrap items-center gap-2">
         <h1 className="mr-2 text-base font-semibold tracking-tight">MLBB Draft Predictor</h1>
-        <ToggleGroup variant="outline" size="sm" spacing={0} value={[mode]} onValueChange={(v) => v[0] && requestMode(v[0] as Mode)}>
+        <ToggleGroup variant="outline" size="sm" spacing={0} value={[mode]} onValueChange={(v) => v[0] && switchMode(v[0] as Mode)}>
           <ToggleGroupItem value="free">Free pick</ToggleGroupItem>
           <ToggleGroupItem value="live">Live draft</ToggleGroupItem>
         </ToggleGroup>
@@ -213,22 +207,6 @@ export function DraftBoard() {
         }}
       />
 
-      <AlertDialog open={Boolean(pendingMode)} onOpenChange={(o) => !o && setPendingMode(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Switch to {pendingMode === "live" ? "Live draft" : "Free pick"}?</AlertDialogTitle>
-            <AlertDialogDescription>
-              {pendingMode === "live"
-                ? "Live draft starts on its own board and follows the ranked pick order (Blue 1, Red 2, Blue 2…). Your free-pick board is saved and comes back when you switch back."
-                : "Free pick uses its own board. Your live draft is saved and comes back when you switch back."}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Stay</AlertDialogCancel>
-            <AlertDialogAction onClick={() => { setMode(pendingMode!); setPendingMode(null); setShowResult(false); }}>Switch</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </main>
   );
 }
