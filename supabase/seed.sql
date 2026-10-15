@@ -3,16 +3,16 @@
 insert into hero_profiles (slug, is_meta, ban_recommended, ban_note, tags, power_early, power_mid, power_late, notes, status, damage_type, roles, ratings, difficulty, specs_reviewed, tier, rank_bias, strong_vs_types, weak_vs_types, strong_vs_traits, weak_vs_traits, good_with_traits) values
   ('aamon', false, false, '', array['pickoff', 'stealth']::text[], 2, 4, 4, 'Strong mid to late game, weak early. No dash, but camouflage is very strong in lower ranks; higher ranks can dodge his ultimate with dashes and Flicker (not easy). Easy to play but timing matters. Strong against immobile heroes and heroes that rely on targeting (camouflage). Recommended jungle pick against front-to-back drafts with an immobile backline. Close to meta (A tier).', 'confirmed', 'physical', array['jungle']::text[], '{"cc":0,"pickoff":5,"sustain":3,"mobility":5,"frontline":0,"objective":2,"teamfight":0,"hg_defense":0}'::jsonb, 1, true, 'A', 1, array['Front-to-back']::text[], array[]::text[], array['immobile']::text[], array[]::text[], array[]::text[]),
   ('akai', false, false, '', array[]::text[], 4, 4, 3, 'Very recommended against certain drafts, e.g. Aulus, Lukas and dive comps — easily disrupts them. Very strong high-ground defense. Not naturally a frontline. Falls off late due to long cooldowns and more mobile enemies. Strong invade: built-in dash + stun at levels 1–2 for pickoffs. Weak to Purify and CC immunity (Diggie). Lesley is the best anti-tank into him; Karrie, X.Borg and Dyrroth get spun by his ultimate.', 'confirmed', 'physical', array['roam', 'jungle']::text[], '{"cc":5,"pickoff":3,"sustain":2,"mobility":2,"frontline":2,"objective":2,"teamfight":4,"hg_defense":4}'::jsonb, 3, true, 'A', 0, array['Dive']::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
-  ('aldous', false, false, '', array['pickoff', 'split']::text[], 1, 2, 4, 'Out of meta — too immobile, hard to make viable. Plays as an assassin finisher from the EXP lane. Very weak early. Late game easily bursts far-back squishies (Lesley, Layla) but needs good timing. Split push is strong and must be respected, but leaves the team without an EXP frontline. Countered by defensive items and teams that stick together.', 'confirmed', 'physical', array['exp']::text[], '{"cc":2,"pickoff":5,"sustain":3,"mobility":1,"frontline":3,"objective":4,"teamfight":1,"hg_defense":0}'::jsonb, 4, true, 'D', 0, array[]::text[], array['Teamfight']::text[], array[]::text[], array[]::text[], array[]::text[]),
-  ('alice', true, true, 'Especially dangerous paired with Angela.', array['thick']::text[], 2, 3, 5, 'S tier with Angela, A tier without; in the meta. Sustain teamfighter, front-to-back. Easily kited early; scales hard late. Weak to anti-heal (Baxia), crowd control and kiting heroes (Karrie, Lunox). Strong against tanky EXP fighters and fighter gold laners. Alpha can win early but Alice mostly out-sustains him late. Franco''s suppress is strong before Alice stacks. Lower ranks have a harder time against her.', 'confirmed', 'magic', array['exp', 'jungle']::text[], '{"cc":4,"pickoff":2,"sustain":5,"mobility":3,"frontline":4,"objective":1,"teamfight":5,"hg_defense":3}'::jsonb, 3, true, 'A', 2, array[]::text[], array[]::text[], array['thick']::text[], array['anti_heal', 'cc', 'mobility']::text[], array[]::text[]),
+  ('aldous', false, false, '', array['pickoff', 'split']::text[], 1, 2, 4, 'Out of meta —  hard to make viable. Plays as an assassin finisher from the EXP lane. Very weak early. Late game easily bursts far-back squishies (Lesley, Layla) but needs good timing. Split push is strong and must be respected, but leaves the team without an EXP frontline. Countered by defensive items and teams that stick together. Very good against split pushers as late game aldous can beat anyone 1v1.', 'confirmed', 'physical', array['exp']::text[], '{"cc":2,"pickoff":5,"sustain":3,"mobility":1,"frontline":3,"objective":4,"teamfight":2,"hg_defense":0}'::jsonb, 4, true, 'D', 0, array['Split push', 'Late scaling']::text[], array['Teamfight', 'Early pressure']::text[], array[]::text[], array['thick', 'poke', 'sustain']::text[], array['objective']::text[]),
+  ('alice', true, true, 'Especially dangerous paired with Angela.', array['thick']::text[], 2, 3, 5, 'S tier with Angela, A tier without; in the meta. Sustain teamfighter, front-to-back. Easily kited early; scales hard late. Weak to anti-heal (Baxia), crowd control and kiting heroes (Karrie, Lunox). Strong against tanky EXP fighters and fighter gold laners. Alpha can win early but Alice mostly out-sustains him late. Franco''s suppress is strong before Alice stacks. Lower ranks have a harder time against her.', 'confirmed', 'magic', array['exp', 'jungle']::text[], '{"cc":4,"pickoff":2,"sustain":5,"mobility":3,"frontline":4,"objective":1,"teamfight":5,"hg_defense":3}'::jsonb, 3, true, 'A', 1, array['Front-to-back', 'Teamfight']::text[], array['Split push']::text[], array['thick', 'frontline', 'sustain']::text[], array['anti_heal', 'cc', 'mobility']::text[], array['cc']::text[]),
   ('alpha', false, false, '', array['dive', 'pickoff', 'true_damage']::text[], 3, 5, 3, 'Strong against Belerick, Carmilla and tank-heavy drafts (true damage). Falls off late. Pickoff/dive, all-in commit — can''t really poke. Must land his ultimate. Estes is a strong counter.', 'confirmed', 'physical', array['jungle', 'exp']::text[], '{"cc":3,"pickoff":2,"sustain":3,"mobility":3,"frontline":3,"objective":3,"teamfight":3,"hg_defense":2}'::jsonb, 2, true, 'B', 0, array[]::text[], array[]::text[], array['thick']::text[], array[]::text[], array[]::text[]),
   ('alucard', false, false, '', array[]::text[], 3, 4, 4, 'Decent against certain drafts: strong sustain and damage against enemies without stuns (lifesteal). Bad against drafts with stunners. If he gets ahead early he snowballs very hard and farms very fast. Weak to anti-heal, hard crowd control and kiting. Much stronger in low ranks and solo queue (uncoordinated teams).', 'confirmed', 'physical', array['jungle']::text[], '{"cc":0,"pickoff":2,"sustain":5,"mobility":3,"frontline":2,"objective":3,"teamfight":2,"hg_defense":2}'::jsonb, 1, true, 'C', 2, array[]::text[], array[]::text[], array[]::text[], array['cc', 'anti_heal']::text[], array[]::text[]),
   ('angela', false, false, '', array['enchanter', 'global']::text[], 1, 4, 3, 'C tier — very conditional, usually not good. Works with Alice or Lukas, or high-skill assassins that go in and out with burst: Lancelot, Gusion and Hayabusa are most viable, Yi Sun-shin and Nolan possible. Without tank/sustain heroes she leaves the marksman in a very bad state. Global presence is one of her biggest advantages. Pickoff comes from her ultimate.', 'confirmed', 'magic', array['roam', 'mid']::text[], '{"cc":2,"pickoff":3,"sustain":5,"mobility":2,"frontline":0,"objective":0,"teamfight":1,"hg_defense":2}'::jsonb, 1, true, 'C', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
   ('argus', false, false, '', array['split', 'thick']::text[], 2, 3, 4, 'Very situational, B tier (A if played right). Good against burst (Kadita, Eudora, Tigreal combos that usually delete a solo target). Stays in long drawn-out teamfights and is a very good split pusher. Generally wins fights against tanks. Weak against kiters that run away (Chang''e, Lesley, Granger, Beatrix); needs the team to back him up, otherwise he split pushes. Team dependent.', 'confirmed', 'physical', array['exp']::text[], '{"cc":0,"pickoff":2,"sustain":4,"mobility":2,"frontline":2,"objective":4,"teamfight":2,"hg_defense":0}'::jsonb, 2, true, 'B', -1, array[]::text[], array[]::text[], array['thick']::text[], array['mobility']::text[], array[]::text[]),
   ('arlott', true, false, '', array['dive', 'pickoff']::text[], 4, 5, 3, 'Very strong — S tier if played correctly. Like Lancelot but stronger, and has crowd control too. Not a frontliner but huge damage; overwhelms enemies and makes a mess. Falls off late. Strong against teams without lockdown. Synergy with crowd-control allies. Can still deal with split pushers if played right. Usually builds lifesteal, so bring anti-heal. Countered by Phoveus (cancels dashes, out-sustains, teleports), Minsitthar and Khufra (dash cancels), Kaja (lockdown).', 'confirmed', 'physical', array['exp']::text[], '{"cc":3,"pickoff":5,"sustain":2,"mobility":5,"frontline":2,"objective":2,"teamfight":3,"hg_defense":0}'::jsonb, 4, true, 'S', -1, array['Split push']::text[], array[]::text[], array[]::text[], array['lockdown']::text[], array['cc']::text[]),
-  ('atlas', true, false, '', array['thick']::text[], 3, 3, 3, 'Very strong presence (CC ultimate control) but doesn''t need a ban.', 'confirmed', 'magic', array['roam', 'exp']::text[], '{"cc":5,"pickoff":2,"sustain":0,"mobility":3,"frontline":5,"objective":0,"teamfight":5,"hg_defense":3}'::jsonb, 3, false, 'S', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
-  ('aulus', true, true, 'Meta fighter; rush core that scales into an unkillable late game.', array['dive', 'thick']::text[], 2, 3, 5, 'Counter with early pressure and kiting — little escape.', 'confirmed', 'physical', array['jungle', 'exp', 'gold']::text[], '{"cc":2,"pickoff":2,"sustain":3,"mobility":2,"frontline":3,"objective":3,"teamfight":3,"hg_defense":2}'::jsonb, 1, false, 'S', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
-  ('aurora', false, false, '', array[]::text[], 3, 4, 3, '', 'theory', 'magic', array['mid']::text[], '{"cc":5,"pickoff":3,"sustain":0,"mobility":0,"frontline":0,"objective":0,"teamfight":5,"hg_defense":3}'::jsonb, 1, false, 'A', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
+  ('atlas', true, false, '', array['escape', 'thick']::text[], 2, 5, 5, 'S tier, meta. Early is weak before his ultimate; very tanky late game. Can escape easily. Great with area-damage heroes (Pharsa, Vexana, Odette). Good against drafts that group up; still decent against split pushers because he can close the gap and pick off. Weak to Purify, Diggie''s ultimate and Valir (his ultimate is basically Purify — strong counter).', 'confirmed', 'magic', array['roam', 'exp']::text[], '{"cc":5,"pickoff":2,"sustain":0,"mobility":4,"frontline":5,"objective":0,"teamfight":5,"hg_defense":3}'::jsonb, 3, true, 'S', 0, array['Teamfight']::text[], array[]::text[], array[]::text[], array[]::text[], array['cc', 'poke']::text[]),
+  ('aulus', true, true, 'Meta fighter; rush core that scales into an unkillable late game.', array['dive', 'sustained', 'thick']::text[], 4, 5, 3, 'S tier — flexes three lanes (jungle, EXP, gold). Sustain dive. Out-sustains fighters and tanks; weak to kiting heroes. Countered by Akai (hard), Karrie, Edith, Alice.', 'confirmed', 'physical', array['jungle', 'exp', 'gold']::text[], '{"cc":2,"pickoff":2,"sustain":4,"mobility":2,"frontline":3,"objective":3,"teamfight":3,"hg_defense":2}'::jsonb, 1, true, 'S', 0, array['Front-to-back']::text[], array[]::text[], array['thick']::text[], array['mobility']::text[], array[]::text[]),
+  ('aurora', false, false, '', array['burst']::text[], 3, 4, 3, 'C tier. Immobile, big crowd control and big damage. Her passive survives single-target burst, so she beats heroes like Saber and anyone who has to commit — she chain-stuns them. Strong against dive. Very bad against heroes who jump straight to the backline (Ling, Fanny, Hanzo) and fast heroes who keep their distance (Granger).', 'confirmed', 'magic', array['mid']::text[], '{"cc":5,"pickoff":3,"sustain":0,"mobility":0,"frontline":0,"objective":0,"teamfight":5,"hg_defense":3}'::jsonb, 1, true, 'C', 0, array['Dive']::text[], array[]::text[], array['dive']::text[], array['mobility']::text[], array[]::text[]),
   ('badang', false, false, '', array[]::text[], 3, 4, 3, '', 'theory', 'physical', array['roam', 'exp']::text[], '{"cc":5,"pickoff":5,"sustain":0,"mobility":3,"frontline":2,"objective":2,"teamfight":2,"hg_defense":2}'::jsonb, 3, false, 'A', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
   ('balmond', false, false, '', array[]::text[], 4, 3, 2, '', 'theory', 'physical', array['jungle']::text[], '{"cc":0,"pickoff":2,"sustain":3,"mobility":2,"frontline":3,"objective":3,"teamfight":3,"hg_defense":2}'::jsonb, 1, false, 'A', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
   ('bane', false, false, '', array[]::text[], 3, 3, 4, '', 'theory', 'mixed', array['jungle', 'exp']::text[], '{"cc":2,"pickoff":2,"sustain":2,"mobility":2,"frontline":3,"objective":3,"teamfight":3,"hg_defense":3}'::jsonb, 1, false, 'A', 0, array[]::text[], array[]::text[], array[]::text[], array[]::text[], array[]::text[]),
@@ -190,9 +190,8 @@ insert into matchups (counter, target, kind, points, status, why) values
   ('yu-zhong', 'sun', 'not', null, 'confirmed', 'Does not hold Sun''s split push in practice.'),
   ('lukas', 'masha', 'soft', null, 'confirmed', 'Lukas''s lifesteal and damage win the duel, especially when Masha roams.'),
   ('aulus', 'masha', 'soft', null, 'confirmed', 'Aulus''s sustain and damage win the duel, especially when Masha roams.'),
-  ('aamon', 'layla', 'soft', null, 'confirmed', 'Camouflage walks past the frontline onto immobile backliners.'),
+  ('aamon', 'layla', 'hard', 5, 'confirmed', 'Camouflage walks past the frontline onto immobile backliners.'),
   ('aamon', 'miya', 'soft', null, 'confirmed', 'Camouflage walks past the frontline onto immobile backliners.'),
-  ('aamon', 'eudora', 'soft', null, 'confirmed', 'Camouflage walks past the frontline onto immobile backliners.'),
   ('aamon', 'cyclops', 'soft', null, 'confirmed', 'Camouflage walks past the frontline onto immobile backliners.'),
   ('gloo', 'aamon', 'hard', null, 'confirmed', 'Aamon is very weak against Gloo.'),
   ('freya', 'aamon', 'soft', null, 'confirmed', 'Strong fighters like Freya beat Aamon.'),
@@ -230,7 +229,20 @@ insert into matchups (counter, target, kind, points, status, why) values
   ('phoveus', 'arlott', 'hard', null, 'confirmed', 'Cancels Arlott''s dashes, out-sustains him and teleports onto him.'),
   ('minsitthar', 'arlott', 'hard', null, 'confirmed', 'Minsitthar''s ultimate cancels Arlott''s dashes.'),
   ('khufra', 'arlott', 'hard', null, 'confirmed', 'Khufra cancels Arlott''s dashes.'),
-  ('kaja', 'arlott', 'soft', null, 'confirmed', 'Kaja locks Arlott down.')
+  ('kaja', 'arlott', 'soft', null, 'confirmed', 'Kaja locks Arlott down.'),
+  ('hayabusa', 'aamon', 'hard', 4, 'confirmed', 'aamon cant escape hayabusa ultimate and hayabusea can easily dodge aamon ultimate'),
+  ('eudora', 'aamon', 'soft', 2, 'confirmed', 'eudora can burst aamon with stun ultimate combo'),
+  ('akai', 'tigreal', 'hard', 5, 'confirmed', 'can easily cancel Tigreal ultimate using Akai''s ultimate'),
+  ('cecilion', 'akai', 'soft', 3, 'confirmed', 'can keep distance and chip on Akai''s health'),
+  ('akai', 'odette', 'soft', 4, 'confirmed', 'Can easily disrupt Odette ultimate with Akai''s ultimate'),
+  ('minsitthar', 'alice', 'soft', 3, 'confirmed', 'Alice cannot use first skill to escape'),
+  ('diggie', 'atlas', 'hard', null, 'confirmed', 'Diggie''s ultimate cleanses Atlas''s ultimate.'),
+  ('valir', 'atlas', 'hard', null, 'confirmed', 'Valir''s ultimate works like Purify against Atlas''s ultimate.'),
+  ('aurora', 'saber', 'soft', null, 'confirmed', 'Aurora''s passive survives Saber''s single-target burst, then she chain-stuns him.'),
+  ('ling', 'aurora', 'hard', null, 'confirmed', 'Jumps straight onto the immobile Aurora.'),
+  ('fanny', 'aurora', 'hard', null, 'confirmed', 'Jumps straight onto the immobile Aurora.'),
+  ('hanzo', 'aurora', 'hard', null, 'confirmed', 'Jumps straight onto the immobile Aurora.'),
+  ('granger', 'aurora', 'soft', null, 'confirmed', 'Fast and keeps his distance from Aurora.')
 on conflict do nothing;
 
 insert into synergies (hero_a, hero_b, points, status, why) values
@@ -247,7 +259,10 @@ insert into synergies (hero_a, hero_b, points, status, why) values
   ('angela', 'gusion', 3, 'confirmed', 'In-and-out burst assassin — most viable Angela partner.'),
   ('angela', 'hayabusa', 3, 'confirmed', 'In-and-out burst assassin — most viable Angela partner.'),
   ('angela', 'yi-sun-shin', 2, 'confirmed', 'High-skill assassin Angela can follow in.'),
-  ('angela', 'nolan', 2, 'confirmed', 'High-skill assassin Angela can follow in.')
+  ('angela', 'nolan', 2, 'confirmed', 'High-skill assassin Angela can follow in.'),
+  ('atlas', 'pharsa', 3, 'confirmed', 'Area damage lands on everyone Atlas pulls together.'),
+  ('atlas', 'vexana', 3, 'confirmed', 'Area damage lands on everyone Atlas pulls together.'),
+  ('atlas', 'odette', 3, 'confirmed', 'Area damage lands on everyone Atlas pulls together.')
 on conflict do nothing;
 
 insert into item_advice (trigger, item, status, why, for_role) values
@@ -262,14 +277,17 @@ insert into item_advice (trigger, item, status, why, for_role) values
   ('enemy:akai', 'Purify (spell)', 'confirmed', 'Purify escapes Akai''s ultimate.', null),
   ('enemy:alice', 'Dominance Ice / Necklace of Durance', 'confirmed', 'Anti-heal is the key answer to Alice''s sustain.', null),
   ('enemy:alucard', 'Dominance Ice / Sea Halberd', 'confirmed', 'Anti-heal cuts Alucard''s lifesteal.', null),
-  ('enemy:arlott', 'Dominance Ice / Sea Halberd', 'confirmed', 'Arlott usually builds lifesteal — bring anti-heal.', null)
+  ('enemy:arlott', 'Dominance Ice / Sea Halberd', 'confirmed', 'Arlott usually builds lifesteal — bring anti-heal.', null),
+  ('enemy:atlas', 'Purify (spell)', 'confirmed', 'Purify escapes Atlas''s ultimate.', null)
 on conflict do nothing;
 
 insert into rules (id, weight, status, description) values
   ('ally-trait-fit', 2, 'theory', 'Points when a hero has teammates with a trait it works well with (e.g. Arlott with crowd control). Counted once per trait.'),
+  ('dash-vs-anti-dash', 2, 'theory', 'Automatic: a dash-reliant hero loses this much per enemy anti-dash hero (e.g. Khufra, Minsitthar).'),
   ('dive-beats-poke', 3, 'theory', 'Dive drafts reach poke heroes before poke wears them down.'),
   ('enchanter-no-frontline', 15, 'confirmed', 'Support/healer (Rafaela/Floryn/Estes/Angela) with no tank and no other sustain hero on the team — drops massively.'),
   ('front-to-back-beats-dive', 3, 'theory', 'A front-to-back team peels and punishes divers who jump in.'),
+  ('global-presence', 2, 'confirmed', 'Bonus points for each hero with global presence — a good trait to have in general.'),
   ('no-anti-heal', 4, 'theory', 'Enemy has 3+ high-sustain heroes and this team has no anti-heal hero.'),
   ('no-anti-tank', 20, 'confirmed', 'Enemy has 2+ tanks and this team has no anti-tank hero (true damage, or marked strong against tanks).'),
   ('no-frontline', 6, 'confirmed', 'No frontline (tank or tanky fighter).'),
@@ -284,19 +302,17 @@ insert into rules (id, weight, status, description) values
   ('setting-denial', 0.3, 'theory', 'Setting (live mode): share of a hero''s value to the enemy added to its pick score (taking it denies them).'),
   ('setting-phase-weight', 4, 'theory', 'Setting: points per 1.0 difference in average early/mid/late power between the teams.'),
   ('setting-solo-queue', 0.5, 'theory', 'Setting: in solo queue, rank-sensitive heroes count as this many ranks lower (party queue: this many higher).'),
+  ('setting-trait-cap', 6, 'theory', 'Setting: the most trait points one hero can gain, and the most it can lose, in one draft.'),
   ('single-damage-type', 8, 'confirmed', 'All damage of one type — easy to itemize against.'),
   ('split-beats-slow-teamfight', 5, 'confirmed', 'Split push beats front-to-back drafts (grouped tank/healer teams like Estes + Belerick can''t chase a split pusher).'),
   ('stealth-vs-targeted', 3, 'theory', 'A stealth hero (e.g. Aamon) against 2+ enemies that rely on targeting skills.'),
+  ('sustain-vs-anti-heal', 2, 'theory', 'Automatic: a strong-sustain hero (4+) loses this much per enemy anti-heal hero (e.g. Baxia).'),
   ('tier-a', 2, 'theory', 'Points for each A-tier hero picked.'),
   ('tier-c', -2, 'theory', 'Points for each C-tier hero picked (negative = weak in the meta).'),
   ('tier-d', -4, 'theory', 'Points for each D-tier hero picked (negative = out of the meta).'),
   ('tier-s', 4, 'theory', 'Points for each S-tier (meta) hero picked.'),
   ('trait-fit', 2, 'theory', 'Points when a hero faces enemy heroes with a trait it is strong against (or lost when weak against it). Counted once per trait.'),
-  ('type-fit', 3, 'theory', 'Points when a hero is strong against the enemy''s draft type (or lost when weak against it).'),
-  ('global-presence', 2, 'confirmed', 'Bonus points for each hero with global presence — a good trait to have in general.'),
-  ('dash-vs-anti-dash', 2, 'theory', 'Automatic: a dash-reliant hero loses this much per enemy anti-dash hero (e.g. Khufra, Minsitthar).'),
-  ('sustain-vs-anti-heal', 2, 'theory', 'Automatic: a strong-sustain hero (4+) loses this much per enemy anti-heal hero (e.g. Baxia).'),
-  ('setting-trait-cap', 6, 'theory', 'Setting: the most trait points one hero can gain, and the most it can lose, in one draft.')
+  ('type-fit', 3, 'theory', 'Points when a hero is strong against the enemy''s draft type (or lost when weak against it).')
 on conflict do nothing;
 
 insert into applied_migrations (id) values ('004-rescale') on conflict do nothing;

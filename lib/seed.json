@@ -92,7 +92,7 @@
    "power_early": 1,
    "power_mid": 2,
    "power_late": 4,
-   "notes": "Out of meta \u2014 too immobile, hard to make viable. Plays as an assassin finisher from the EXP lane. Very weak early. Late game easily bursts far-back squishies (Lesley, Layla) but needs good timing. Split push is strong and must be respected, but leaves the team without an EXP frontline. Countered by defensive items and teams that stick together.",
+   "notes": "Out of meta \u2014  hard to make viable. Plays as an assassin finisher from the EXP lane. Very weak early. Late game easily bursts far-back squishies (Lesley, Layla) but needs good timing. Split push is strong and must be respected, but leaves the team without an EXP frontline. Countered by defensive items and teams that stick together. Very good against split pushers as late game aldous can beat anyone 1v1.",
    "status": "confirmed",
    "damage_type": "physical",
    "roles": [
@@ -105,20 +105,30 @@
     "mobility": 1,
     "frontline": 3,
     "objective": 4,
-    "teamfight": 1,
+    "teamfight": 2,
     "hg_defense": 0
    },
    "difficulty": 4,
    "specs_reviewed": true,
    "tier": "D",
    "rank_bias": 0,
-   "strong_vs_types": [],
+   "strong_vs_types": [
+    "Split push",
+    "Late scaling"
+   ],
    "weak_vs_types": [
-    "Teamfight"
+    "Teamfight",
+    "Early pressure"
    ],
    "strong_vs_traits": [],
-   "weak_vs_traits": [],
-   "good_with_traits": []
+   "weak_vs_traits": [
+    "thick",
+    "poke",
+    "sustain"
+   ],
+   "good_with_traits": [
+    "objective"
+   ]
   },
   {
    "slug": "alice",
@@ -151,18 +161,27 @@
    "difficulty": 3,
    "specs_reviewed": true,
    "tier": "A",
-   "rank_bias": 2,
-   "strong_vs_types": [],
-   "weak_vs_types": [],
+   "rank_bias": 1,
+   "strong_vs_types": [
+    "Front-to-back",
+    "Teamfight"
+   ],
+   "weak_vs_types": [
+    "Split push"
+   ],
    "strong_vs_traits": [
-    "thick"
+    "thick",
+    "frontline",
+    "sustain"
    ],
    "weak_vs_traits": [
     "anti_heal",
     "cc",
     "mobility"
    ],
-   "good_with_traits": []
+   "good_with_traits": [
+    "cc"
+   ]
   },
   {
    "slug": "alpha",
@@ -375,12 +394,13 @@
    "ban_recommended": false,
    "ban_note": "",
    "tags": [
+    "escape",
     "thick"
    ],
-   "power_early": 3,
-   "power_mid": 3,
-   "power_late": 3,
-   "notes": "Very strong presence (CC ultimate control) but doesn't need a ban.",
+   "power_early": 2,
+   "power_mid": 5,
+   "power_late": 5,
+   "notes": "S tier, meta. Early is weak before his ultimate; very tanky late game. Can escape easily. Great with area-damage heroes (Pharsa, Vexana, Odette). Good against drafts that group up; still decent against split pushers because he can close the gap and pick off. Weak to Purify, Diggie's ultimate and Valir (his ultimate is basically Purify \u2014 strong counter).",
    "status": "confirmed",
    "damage_type": "magic",
    "roles": [
@@ -391,21 +411,26 @@
     "cc": 5,
     "pickoff": 2,
     "sustain": 0,
-    "mobility": 3,
+    "mobility": 4,
     "frontline": 5,
     "objective": 0,
     "teamfight": 5,
     "hg_defense": 3
    },
    "difficulty": 3,
-   "specs_reviewed": false,
+   "specs_reviewed": true,
    "tier": "S",
    "rank_bias": 0,
-   "strong_vs_types": [],
+   "strong_vs_types": [
+    "Teamfight"
+   ],
    "weak_vs_types": [],
    "strong_vs_traits": [],
    "weak_vs_traits": [],
-   "good_with_traits": []
+   "good_with_traits": [
+    "cc",
+    "poke"
+   ]
   },
   {
    "slug": "aulus",
@@ -414,12 +439,13 @@
    "ban_note": "Meta fighter; rush core that scales into an unkillable late game.",
    "tags": [
     "dive",
+    "sustained",
     "thick"
    ],
-   "power_early": 2,
-   "power_mid": 3,
-   "power_late": 5,
-   "notes": "Counter with early pressure and kiting \u2014 little escape.",
+   "power_early": 4,
+   "power_mid": 5,
+   "power_late": 3,
+   "notes": "S tier \u2014 flexes three lanes (jungle, EXP, gold). Sustain dive. Out-sustains fighters and tanks; weak to kiting heroes. Countered by Akai (hard), Karrie, Edith, Alice.",
    "status": "confirmed",
    "damage_type": "physical",
    "roles": [
@@ -430,7 +456,7 @@
    "ratings": {
     "cc": 2,
     "pickoff": 2,
-    "sustain": 3,
+    "sustain": 4,
     "mobility": 2,
     "frontline": 3,
     "objective": 3,
@@ -438,13 +464,19 @@
     "hg_defense": 2
    },
    "difficulty": 1,
-   "specs_reviewed": false,
+   "specs_reviewed": true,
    "tier": "S",
    "rank_bias": 0,
-   "strong_vs_types": [],
+   "strong_vs_types": [
+    "Front-to-back"
+   ],
    "weak_vs_types": [],
-   "strong_vs_traits": [],
-   "weak_vs_traits": [],
+   "strong_vs_traits": [
+    "thick"
+   ],
+   "weak_vs_traits": [
+    "mobility"
+   ],
    "good_with_traits": []
   },
   {
@@ -452,12 +484,14 @@
    "is_meta": false,
    "ban_recommended": false,
    "ban_note": "",
-   "tags": [],
+   "tags": [
+    "burst"
+   ],
    "power_early": 3,
    "power_mid": 4,
    "power_late": 3,
-   "notes": "",
-   "status": "theory",
+   "notes": "C tier. Immobile, big crowd control and big damage. Her passive survives single-target burst, so she beats heroes like Saber and anyone who has to commit \u2014 she chain-stuns them. Strong against dive. Very bad against heroes who jump straight to the backline (Ling, Fanny, Hanzo) and fast heroes who keep their distance (Granger).",
+   "status": "confirmed",
    "damage_type": "magic",
    "roles": [
     "mid"
@@ -473,13 +507,19 @@
     "hg_defense": 3
    },
    "difficulty": 1,
-   "specs_reviewed": false,
-   "tier": "A",
+   "specs_reviewed": true,
+   "tier": "C",
    "rank_bias": 0,
-   "strong_vs_types": [],
+   "strong_vs_types": [
+    "Dive"
+   ],
    "weak_vs_types": [],
-   "strong_vs_traits": [],
-   "weak_vs_traits": [],
+   "strong_vs_traits": [
+    "dive"
+   ],
+   "weak_vs_traits": [
+    "mobility"
+   ],
    "good_with_traits": []
   },
   {
@@ -5287,22 +5327,14 @@
   {
    "counter": "aamon",
    "target": "layla",
-   "kind": "soft",
-   "points": null,
+   "kind": "hard",
+   "points": 5,
    "status": "confirmed",
    "why": "Camouflage walks past the frontline onto immobile backliners."
   },
   {
    "counter": "aamon",
    "target": "miya",
-   "kind": "soft",
-   "points": null,
-   "status": "confirmed",
-   "why": "Camouflage walks past the frontline onto immobile backliners."
-  },
-  {
-   "counter": "aamon",
-   "target": "eudora",
    "kind": "soft",
    "points": null,
    "status": "confirmed",
@@ -5611,6 +5643,110 @@
    "points": null,
    "status": "confirmed",
    "why": "Kaja locks Arlott down."
+  },
+  {
+   "counter": "hayabusa",
+   "target": "aamon",
+   "kind": "hard",
+   "points": 4,
+   "status": "confirmed",
+   "why": "aamon cant escape hayabusa ultimate and hayabusea can easily dodge aamon ultimate"
+  },
+  {
+   "counter": "eudora",
+   "target": "aamon",
+   "kind": "soft",
+   "points": 2,
+   "status": "confirmed",
+   "why": "eudora can burst aamon with stun ultimate combo"
+  },
+  {
+   "counter": "akai",
+   "target": "tigreal",
+   "kind": "hard",
+   "points": 5,
+   "status": "confirmed",
+   "why": "can easily cancel Tigreal ultimate using Akai's ultimate"
+  },
+  {
+   "counter": "cecilion",
+   "target": "akai",
+   "kind": "soft",
+   "points": 3,
+   "status": "confirmed",
+   "why": "can keep distance and chip on Akai's health"
+  },
+  {
+   "counter": "akai",
+   "target": "odette",
+   "kind": "soft",
+   "points": 4,
+   "status": "confirmed",
+   "why": "Can easily disrupt Odette ultimate with Akai's ultimate"
+  },
+  {
+   "counter": "minsitthar",
+   "target": "alice",
+   "kind": "soft",
+   "points": 3,
+   "status": "confirmed",
+   "why": "Alice cannot use first skill to escape"
+  },
+  {
+   "counter": "diggie",
+   "target": "atlas",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Diggie's ultimate cleanses Atlas's ultimate."
+  },
+  {
+   "counter": "valir",
+   "target": "atlas",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Valir's ultimate works like Purify against Atlas's ultimate."
+  },
+  {
+   "counter": "aurora",
+   "target": "saber",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Aurora's passive survives Saber's single-target burst, then she chain-stuns him."
+  },
+  {
+   "counter": "ling",
+   "target": "aurora",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Jumps straight onto the immobile Aurora."
+  },
+  {
+   "counter": "fanny",
+   "target": "aurora",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Jumps straight onto the immobile Aurora."
+  },
+  {
+   "counter": "hanzo",
+   "target": "aurora",
+   "kind": "hard",
+   "points": null,
+   "status": "confirmed",
+   "why": "Jumps straight onto the immobile Aurora."
+  },
+  {
+   "counter": "granger",
+   "target": "aurora",
+   "kind": "soft",
+   "points": null,
+   "status": "confirmed",
+   "why": "Fast and keeps his distance from Aurora."
   }
  ],
  "synergies": [
@@ -5711,6 +5847,27 @@
    "points": 2,
    "status": "confirmed",
    "why": "High-skill assassin Angela can follow in."
+  },
+  {
+   "hero_a": "atlas",
+   "hero_b": "pharsa",
+   "points": 3,
+   "status": "confirmed",
+   "why": "Area damage lands on everyone Atlas pulls together."
+  },
+  {
+   "hero_a": "atlas",
+   "hero_b": "vexana",
+   "points": 3,
+   "status": "confirmed",
+   "why": "Area damage lands on everyone Atlas pulls together."
+  },
+  {
+   "hero_a": "atlas",
+   "hero_b": "odette",
+   "points": 3,
+   "status": "confirmed",
+   "why": "Area damage lands on everyone Atlas pulls together."
   }
  ],
  "item_advice": [
@@ -5797,6 +5954,13 @@
    "status": "confirmed",
    "why": "Arlott usually builds lifesteal \u2014 bring anti-heal.",
    "for_role": null
+  },
+  {
+   "trigger": "enemy:atlas",
+   "item": "Purify (spell)",
+   "for_role": null,
+   "status": "confirmed",
+   "why": "Purify escapes Atlas's ultimate."
   }
  ],
  "rules": [
@@ -5805,6 +5969,12 @@
    "weight": 2,
    "status": "theory",
    "description": "Points when a hero has teammates with a trait it works well with (e.g. Arlott with crowd control). Counted once per trait."
+  },
+  {
+   "id": "dash-vs-anti-dash",
+   "weight": 2,
+   "status": "theory",
+   "description": "Automatic: a dash-reliant hero loses this much per enemy anti-dash hero (e.g. Khufra, Minsitthar)."
   },
   {
    "id": "dive-beats-poke",
@@ -5823,6 +5993,12 @@
    "weight": 3,
    "status": "theory",
    "description": "A front-to-back team peels and punishes divers who jump in."
+  },
+  {
+   "id": "global-presence",
+   "weight": 2,
+   "status": "confirmed",
+   "description": "Bonus points for each hero with global presence \u2014 a good trait to have in general."
   },
   {
    "id": "no-anti-heal",
@@ -5909,6 +6085,12 @@
    "description": "Setting: in solo queue, rank-sensitive heroes count as this many ranks lower (party queue: this many higher)."
   },
   {
+   "id": "setting-trait-cap",
+   "weight": 6,
+   "status": "theory",
+   "description": "Setting: the most trait points one hero can gain, and the most it can lose, in one draft."
+  },
+  {
    "id": "single-damage-type",
    "weight": 8,
    "status": "confirmed",
@@ -5925,6 +6107,12 @@
    "weight": 3,
    "status": "theory",
    "description": "A stealth hero (e.g. Aamon) against 2+ enemies that rely on targeting skills."
+  },
+  {
+   "id": "sustain-vs-anti-heal",
+   "weight": 2,
+   "status": "theory",
+   "description": "Automatic: a strong-sustain hero (4+) loses this much per enemy anti-heal hero (e.g. Baxia)."
   },
   {
    "id": "tier-a",
@@ -5961,30 +6149,6 @@
    "weight": 3,
    "status": "theory",
    "description": "Points when a hero is strong against the enemy's draft type (or lost when weak against it)."
-  },
-  {
-   "id": "global-presence",
-   "weight": 2,
-   "status": "confirmed",
-   "description": "Bonus points for each hero with global presence \u2014 a good trait to have in general."
-  },
-  {
-   "id": "dash-vs-anti-dash",
-   "weight": 2,
-   "status": "theory",
-   "description": "Automatic: a dash-reliant hero loses this much per enemy anti-dash hero (e.g. Khufra, Minsitthar)."
-  },
-  {
-   "id": "sustain-vs-anti-heal",
-   "weight": 2,
-   "status": "theory",
-   "description": "Automatic: a strong-sustain hero (4+) loses this much per enemy anti-heal hero (e.g. Baxia)."
-  },
-  {
-   "id": "setting-trait-cap",
-   "weight": 6,
-   "status": "theory",
-   "description": "Setting: the most trait points one hero can gain, and the most it can lose, in one draft."
   }
  ]
 }
