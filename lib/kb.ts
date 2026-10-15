@@ -138,9 +138,8 @@ export const RATINGS = [
   { key: "frontline", label: "Frontline", hint: "Absorbs damage and protects the team (4+ = a real frontline)" },
   { key: "cc", label: "Crowd control", hint: "Amount and reliability of stuns, slows, taunts" },
   { key: "mobility", label: "Mobility", hint: "Dashes and gap-close — can reach or escape" },
-  { key: "wave_clear", label: "Wave clear", hint: "Clears minion waves and pushes fast" },
   { key: "objective", label: "Objectives", hint: "Takes Lord, Turtle and turrets quickly" },
-  { key: "hg_defense", label: "High-ground defense", hint: "Holds base: wave clear, range and zone control" },
+  { key: "hg_defense", label: "High-ground defense / wave clear", hint: "Clears waves and holds base: range and zone control" },
   { key: "teamfight", label: "Teamfight", hint: "Area impact in 5v5 fights" },
   { key: "pickoff", label: "Pickoff", hint: "Catches and bursts a single target" },
   { key: "sustain", label: "Sustain", hint: "Healing, lifesteal and regeneration" },
@@ -161,26 +160,22 @@ export const DAMAGE_TYPES: { value: DamageType; label: string }[] = [
   { value: "mixed", label: "Mixed" },
 ];
 
-// Yes/no traits used by composition rules (degrees live in RATINGS).
-export const TAGS: { value: string; label: string; hint: string }[] = [
-  { value: "thick", label: "Thick", hint: "High HP / very hard to kill — needs anti-tank damage" },
-  { value: "enchanter", label: "Enchanter", hint: "Healer/buffer support that needs a frontline" },
-  { value: "anti_tank", label: "Anti-tank", hint: "Damage that kills thick heroes (true or % damage)" },
-  { value: "true_damage", label: "True damage", hint: "Deals true damage" },
-  { value: "split", label: "Split pusher", hint: "Pushes side lanes fast on their own" },
-  { value: "rush", label: "Rush", hint: "Sustain-heavy dive that can't be burst" },
-  { value: "pickoff", label: "Pickoff", hint: "Catches and bursts single targets" },
-  { value: "dive", label: "Dive", hint: "All-in commit onto the backline" },
-  { value: "poke", label: "Poke", hint: "Damages from long range before fights start" },
-  { value: "slow_teamfight", label: "Slow teamfight", hint: "Grouped tank/enchanter fighting style" },
-  { value: "anti_dash", label: "Anti-dash", hint: "Stops dashes and blinks" },
-  { value: "dash", label: "Dash-reliant", hint: "Kit depends on dashing" },
-  { value: "anti_walking", label: "Anti-walking", hint: "Punishes heroes without mobility" },
-  { value: "anti_heal", label: "Anti-heal", hint: "Cuts enemy healing and shields from their kit" },
-  { value: "cleanse", label: "Cleanse", hint: "Removes or blocks crowd control for allies" },
-  { value: "stealth", label: "Stealth", hint: "Camouflage/invisibility — beats heroes that rely on targeting" },
-  { value: "global", label: "Global presence", hint: "Can affect fights anywhere on the map" },
-  { value: "targeted", label: "Relies on targeting", hint: "Point-and-click or lock-on skills — weak to stealth" },
+// Yes/no hero traits. `counterable: false` traits describe the hero (used as reasons and bonuses) but can't be
+// picked under "strong against" or "good with allies" — nobody is specifically good against true damage.
+export const TAGS: { value: string; label: string; hint: string; counterable: boolean }[] = [
+  { value: "thick", label: "Tank", hint: "Very hard to kill — needs anti-tank damage", counterable: true },
+  { value: "enchanter", label: "Support / healer", hint: "Healer/buffer support that needs a tank or sustain hero", counterable: true },
+  { value: "dive", label: "Dive", hint: "Commits onto the backline (with sustain: brawls through pickoff)", counterable: true },
+  { value: "pickoff", label: "Pickoff", hint: "Catches and bursts single targets", counterable: true },
+  { value: "poke", label: "Poke", hint: "Damages from long range before fights start", counterable: true },
+  { value: "split", label: "Split pusher", hint: "Pushes side lanes fast on their own", counterable: true },
+  { value: "dash", label: "Dash-reliant", hint: "Kit depends on dashing", counterable: true },
+  { value: "stealth", label: "Camouflage", hint: "Camouflage/invisibility — beats heroes that rely on targeting", counterable: true },
+  { value: "targeted", label: "Relies on targeting", hint: "Point-and-click or lock-on skills — weak to camouflage", counterable: true },
+  { value: "true_damage", label: "True damage", hint: "Deals true damage — counts as anti-tank", counterable: false },
+  { value: "global", label: "Global presence", hint: "Can affect fights anywhere on the map — small bonus", counterable: false },
+  { value: "anti_dash", label: "Anti-dash", hint: "Stops dashes and blinks", counterable: false },
+  { value: "anti_heal", label: "Anti-heal", hint: "Cuts enemy healing and shields from their kit", counterable: false },
 ];
 export const TAG_LABEL = new Map(TAGS.map((t) => [t.value, t.label]));
 
@@ -229,9 +224,15 @@ export function formatTrigger(t: Trigger): string {
   return `enemy_tag:${t.tag}>=${t.count}`;
 }
 
-// Things an item trigger can count: yes/no tags plus "rated 2+" in a rating.
+// Hero traits for "strong/weak against", "good with allies" and item triggers: tags, derived traits and strong ratings.
+// Teamfight isn't offered (it overlaps crowd control).
 export const TRIGGER_TRAITS = [
-  { value: "lockdown", label: "Strong lockdown (CC 4+)" },
-  ...TAGS.map((t) => ({ value: t.value, label: t.label })),
-  ...RATINGS.map((r) => ({ value: r.key as string, label: `High ${r.label.toLowerCase()} (3+)` })),
+  { value: "lockdown", label: "Suppression / lockdown (CC 4+)", counterable: true },
+  { value: "immobile", label: "Immobile (mobility 0–1)", counterable: true },
+  ...TAGS.map((t) => ({ value: t.value, label: t.label, counterable: t.counterable })),
+  // Ratings, except teamfight and any that share a name with a tag (pickoff: the tag covers it).
+  ...RATINGS.filter((r) => r.key !== "teamfight" && !TAGS.some((t) => t.value === r.key))
+    .map((r) => ({ value: r.key as string, label: `Strong ${r.label.toLowerCase()}`, counterable: true })),
 ];
+// What a hero can be strong against or want on its team (no anti-… or descriptive-only traits).
+export const STRONG_TRAITS = TRIGGER_TRAITS.filter((t) => t.counterable);

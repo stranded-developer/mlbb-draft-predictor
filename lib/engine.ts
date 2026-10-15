@@ -3,7 +3,7 @@
 // practical 0–50 advantage scale with a saturating curve, so stacked flaws climb toward ~40 but never reach 50.
 import { heroName } from "./heroes";
 import {
-  ADVANTAGE_MAX, MATCHUP_POINTS, RATINGS, TRIGGER_TRAITS, parseTrigger,
+  ADVANTAGE_MAX, MATCHUP_POINTS, RATINGS, TAGS, TRIGGER_TRAITS, parseTrigger,
   type HeroProfile, type KB, type Matchup, type RatingKey, type Status,
 } from "./kb";
 
@@ -84,7 +84,7 @@ export class Knowledge {
     const r = this.profiles.get(slug)?.ratings?.[key];
     if (r != null) return r;
     // Fall back to tags for heroes without ratings.
-    if (key === "frontline") return this.has(slug, "frontline") ? 5 : this.has(slug, "thick") ? 4 : 0;
+    if (key === "frontline") return this.has(slug, "thick") ? 4 : 0;
     return 0;
   }
   thick(slug: string) {
@@ -97,8 +97,20 @@ export class Knowledge {
   trait(slug: string, trait: string) {
     if (trait === "thick") return this.thick(slug);
     if (trait === "lockdown") return this.rating(slug, "cc") >= 4;
-    if (RATINGS.some((r) => r.key === trait)) return this.rating(slug, trait as RatingKey) >= HIGH;
+    if (trait === "immobile") return this.rating(slug, "mobility") <= 1;
+    const isRating = RATINGS.some((r) => r.key === trait);
+    // A trait that is both a tag and a rating (pickoff) matches the tag or a 4+ rating.
+    if (isRating && TAGS.some((t) => t.value === trait)) return this.has(slug, trait) || this.rating(slug, trait as RatingKey) >= 4;
+    if (isRating) return this.rating(slug, trait as RatingKey) >= HIGH;
     return this.has(slug, trait);
+  }
+  // Anti-tank: deals true damage, or is marked strong against tanks.
+  antiTank(slug: string) {
+    return this.has(slug, "true_damage") || (this.profile(slug)?.strong_vs_traits ?? []).includes("thick");
+  }
+  // Dive heroes with enough sustain to brawl through burst (what used to be "rush").
+  sustainDive(slug: string) {
+    return this.has(slug, "dive") && this.rating(slug, "sustain") >= HIGH;
   }
   rule(id: string) {
     return this.rules.get(id);
@@ -154,9 +166,9 @@ export function classify(k: Knowledge, team: string[]): DraftType {
   const sum = (key: RatingKey) => team.reduce((s, h) => s + k.rating(h, key), 0);
   const count = (fn: (h: string) => boolean) => team.filter(fn).length;
   const plan = pick({
-    "Split push": count((h) => k.has(h, "split")) * 8 + count((h) => k.rating(h, "wave_clear") >= 4 && k.rating(h, "objective") >= 4),
+    "Split push": count((h) => k.has(h, "split")) * 8 + count((h) => k.rating(h, "hg_defense") >= 4 && k.rating(h, "objective") >= 4),
     Pickoff: sum("pickoff") + count((h) => k.has(h, "pickoff")) * 2,
-    Teamfight: sum("teamfight") + count((h) => k.has(h, "rush")),
+    Teamfight: sum("teamfight"),
   }, "Teamfight");
   const style = pick({
     "Front-to-back": count((h) => k.rating(h, "frontline") >= FRONTLINE) * 2 + count((h) => k.roles(h)[0] === "gold" && k.rating(h, "mobility") <= 3) * 2,
@@ -199,6 +211,10 @@ export function matchupReasons(k: Knowledge, teams: Record<Side, string[]>, ctx:
         });
       }
     }
+    const global = k.rule("global-presence");
+    for (const h of team.filter((h) => global && k.has(h, "global"))) {
+      reasons.push({ side, points: global!.weight, category: "meta", status: global!.status, heroes: [h], title: `${heroName(h)} has global presence` });
+    }
     for (const h of team) {
       for (const hp of k.heroPoints(h, ctx)) {
         // Negative points (weak tier, wrong rank) go to the other side.
@@ -210,6 +226,65 @@ export function matchupReasons(k: Knowledge, teams: Record<Side, string[]>, ctx:
     }
   }
   return reasons;
+}
+
+// Trait reasons for one hero: its own strong/weak/good-with traits plus automatic pairs (dash vs anti-dash,
+// strong sustain vs anti-heal). Pairs already covered by an explicit counter entry are skipped, so "Khufra doesn't stop
+// Lukas" wins over the automatic rule. Gains and losses are each capped per hero (setting-trait-cap).
+function heroTraitReasons(k: Knowledge, h: string, side: Side, team: string[], enemy: string[]): Reason[] {
+  const p = k.profile(h);
+  const winner = other(side);
+  const gains: Reason[] = [];
+  const losses: Reason[] = [];
+  const label = (t: string) => TRAIT_LABEL.get(t)?.toLowerCase() ?? t;
+  const explicit = (a: string, b: string) => k.kb.matchups.some((m) => (m.counter === a && m.target === b) || (m.counter === b && m.target === a));
+
+  const fit = k.rule("trait-fit");
+  if (fit) {
+    for (const trait of p?.strong_vs_traits ?? []) {
+      const matching = enemy.filter((e) => k.trait(e, trait));
+      if (matching.length) gains.push({ side, points: fit.weight, category: "rule", status: fit.status, heroes: [h, ...matching], title: `${heroName(h)} is strong against ${label(trait)} heroes (${names(matching)})` });
+    }
+    for (const trait of p?.weak_vs_traits ?? []) {
+      if (trait === "anti_dash" || trait === "anti_heal") continue; // handled by the automatic pairs below
+      const matching = enemy.filter((e) => k.trait(e, trait));
+      if (matching.length) losses.push({ side: winner, points: fit.weight, category: "rule", status: fit.status, heroes: [h, ...matching], title: `${heroName(h)} is weak against ${label(trait)} heroes (${names(matching)})` });
+    }
+  }
+  const allyFit = k.rule("ally-trait-fit");
+  if (allyFit) {
+    for (const trait of p?.good_with_traits ?? []) {
+      const allies = team.filter((a) => a !== h && k.trait(a, trait));
+      if (allies.length) gains.push({ side, points: allyFit.weight, category: "synergy", status: allyFit.status, heroes: [h, ...allies], title: `${heroName(h)} works with ${label(trait)} allies (${names(allies)})` });
+    }
+  }
+
+  const pairs: [string, boolean, string][] = [
+    ["dash-vs-anti-dash", k.has(h, "dash") || (p?.weak_vs_traits ?? []).includes("anti_dash"), "anti_dash"],
+    ["sustain-vs-anti-heal", k.rating(h, "sustain") >= 4 || (p?.weak_vs_traits ?? []).includes("anti_heal"), "anti_heal"],
+  ];
+  for (const [id, applies, enemyTag] of pairs) {
+    const rule = k.rule(id);
+    if (!rule || !applies) continue;
+    for (const e of enemy.filter((e) => k.has(e, enemyTag) && !explicit(e, h))) {
+      losses.push({
+        side: winner, points: rule.weight, category: "rule", status: rule.status, heroes: [h, e],
+        title: enemyTag === "anti_dash" ? `${heroName(e)}'s anti-dash shuts down ${heroName(h)}'s dashes` : `${heroName(e)}'s anti-heal cuts ${heroName(h)}'s sustain`,
+      });
+    }
+  }
+
+  const cap = k.setting("setting-trait-cap", 6);
+  const capped = (list: Reason[]) => {
+    let left = cap;
+    return list.sort((a, b) => b.points - a.points).flatMap((r) => {
+      if (left <= 0) return [];
+      const points = Math.min(r.points, left);
+      left -= points;
+      return [{ ...r, points }];
+    });
+  };
+  return [...capped(gains), ...capped(losses)];
 }
 
 // Composition rules for complete teams. A broken rule gives points to the other side.
@@ -235,7 +310,7 @@ export function ruleReasons(k: Knowledge, teams: Record<Side, string[]>): Reason
     if (enchanters.length && !protectors.length) add("enchanter-no-frontline", winner, `${T}'s ${names(enchanters)} has no tank or sustain hero to protect`, enchanters);
 
     const thick = enemy.filter((h) => k.thick(h));
-    if (thick.length >= 2 && !team.some((h) => k.has(h, "anti_tank"))) {
+    if (thick.length >= 2 && !team.some((h) => k.antiTank(h))) {
       add("no-anti-tank", winner, `${E} has ${thick.length} thick heroes (${names(thick)}) and ${T} has no anti-tank damage`, thick);
     }
 
@@ -256,13 +331,12 @@ export function ruleReasons(k: Knowledge, teams: Record<Side, string[]>): Reason
       add("no-anti-heal", winner, `${E} has heavy sustain (${names(sustainers)}) and ${T} has no anti-heal hero`, sustainers);
     }
 
-    const rush = team.filter((h) => k.has(h, "rush"));
+    const sustainDive = team.filter((h) => k.sustainDive(h));
     const pickoff = enemy.filter((h) => k.has(h, "pickoff"));
-    if (rush.length >= 2 && pickoff.length >= 2) add("rush-beats-pickoff", side, `${T}'s rush (${names(rush)}) beats ${E}'s pickoff (${names(pickoff)})`, [...rush, ...pickoff]);
+    if (sustainDive.length >= 2 && pickoff.length >= 2) add("rush-beats-pickoff", side, `${T}'s sustain dive (${names(sustainDive)}) beats ${E}'s pickoff (${names(pickoff)})`, [...sustainDive, ...pickoff]);
 
     const split = team.filter((h) => k.has(h, "split"));
-    const slow = enemy.filter((h) => k.has(h, "slow_teamfight"));
-    if (split.length && slow.length >= 2) add("split-beats-slow-teamfight", side, `${T}'s split push (${names(split)}) beats ${E}'s slow teamfight (${names(slow)})`, [...split, ...slow]);
+    if (split.length && classify(k, enemy).style.label === "Front-to-back") add("split-beats-slow-teamfight", side, `${T}'s split push (${names(split)}) beats ${E}'s front-to-back draft`, split);
 
     // Fight-style matchups (primary style only).
     const mine = classify(k, team).style.label;
@@ -287,38 +361,7 @@ export function ruleReasons(k: Knowledge, teams: Record<Side, string[]>): Reason
       }
     }
 
-    // Heroes that are strong or weak against enemy traits (e.g. Alpha vs thick heroes, Alucard vs crowd control).
-    const traitFit = k.rule("trait-fit");
-    if (traitFit) {
-      for (const h of team) {
-        const p = k.profile(h);
-        for (const [list, good] of [[p?.strong_vs_traits ?? [], true], [p?.weak_vs_traits ?? [], false]] as const) {
-          for (const trait of list) {
-            const matching = enemy.filter((e) => k.trait(e, trait));
-            if (!matching.length) continue;
-            reasons.push({
-              side: good ? side : winner, points: traitFit.weight, category: "rule", status: traitFit.status, heroes: [h, ...matching],
-              title: `${heroName(h)} is ${good ? "strong" : "weak"} against ${TRAIT_LABEL.get(trait)?.toLowerCase() ?? trait} heroes (${names(matching)})`,
-            });
-          }
-        }
-      }
-    }
-
-    const allyFit = k.rule("ally-trait-fit");
-    if (allyFit) {
-      for (const h of team) {
-        for (const trait of k.profile(h)?.good_with_traits ?? []) {
-          const allies = team.filter((a) => a !== h && k.trait(a, trait));
-          if (allies.length) {
-            reasons.push({
-              side, points: allyFit.weight, category: "synergy", status: allyFit.status, heroes: [h, ...allies],
-              title: `${heroName(h)} works with ${TRAIT_LABEL.get(trait)?.toLowerCase() ?? trait} allies (${names(allies)})`,
-            });
-          }
-        }
-      }
-    }
+    for (const h of team) reasons.push(...heroTraitReasons(k, h, side, team, enemy));
 
     const stealth = team.filter((h) => k.has(h, "stealth"));
     const targeted = enemy.filter((h) => k.has(h, "targeted"));
@@ -378,9 +421,9 @@ function winConditions(k: Knowledge, side: Side, teams: Record<Side, string[]>, 
 
   const split = team.filter((h) => k.has(h, "split"));
   if (split.length) out.push(`Split push with ${names(split)} while the team holds mid.`);
-  if (team.filter((h) => k.has(h, "rush")).length >= 2) out.push("Group and dive together — your sustain wins long fights.");
+  if (team.filter((h) => k.sustainDive(h)).length >= 2) out.push("Group and dive together — your sustain wins long fights.");
   if (team.filter((h) => k.has(h, "pickoff")).length >= 2) out.push("Catch isolated heroes from vision; avoid long 5v5 fights.");
-  const anti = team.filter((h) => k.has(h, "anti_tank"));
+  const anti = team.filter((h) => k.antiTank(h));
   if (anti.length && enemy.filter((h) => k.thick(h)).length >= 2) out.push(`Protect ${names(anti)} — the answer to their tanks.`);
   const teamfight = team.reduce((s, h) => s + k.rating(h, "teamfight"), 0);
   if (teamfight >= 20) out.push("Force 5v5 teamfights around objectives — your teamfight is stronger.");
@@ -491,14 +534,13 @@ export function suggestPicks(
       if (frontMax < FRONTLINE && k.rating(c, "frontline") >= FRONTLINE) push("Gives the team a frontline", half("no-frontline") + (team.some((h) => k.has(h, "enchanter")) ? half("enchanter-no-frontline") : 0));
       const protected_ = team.some((h) => !k.has(h, "enchanter") && (k.rating(h, "frontline") >= FRONTLINE || k.rating(h, "sustain") >= 4));
       if (k.has(c, "enchanter") && !protected_) push("Enchanter without a tank or sustain hero yet", -half("enchanter-no-frontline"));
-      const allyFit = k.rule("ally-trait-fit");
-      for (const trait of k.profile(c)?.good_with_traits ?? []) {
-        const allies = team.filter((a) => k.trait(a, trait));
-        if (allyFit && allies.length) push(`Works with ${names(allies)}`, allyFit.weight, allyFit.status);
+      // Same trait logic as the full analysis (strong/weak/good-with, automatic pairs, capped).
+      for (const r of heroTraitReasons(k, c, side, [...team, c], enemy)) {
+        push(r.title.replace(`${heroName(c)} `, ""), r.side === side ? r.points : -r.points, r.status);
       }
       if (!team.some((h) => k.roles(h).includes("jungle")) && k.roles(c).includes("jungle")) push("Fills jungle", half("no-jungler"));
       const thick = enemy.filter((h) => k.thick(h));
-      if (thick.length >= 2 && !team.some((h) => k.has(h, "anti_tank")) && k.has(c, "anti_tank")) push(`Anti-tank vs ${names(thick)}`, half("no-anti-tank"));
+      if (thick.length >= 2 && !team.some((h) => k.antiTank(h)) && k.antiTank(c)) push(`Anti-tank vs ${names(thick)}`, half("no-anti-tank"));
       const overlap = k.rule("role-overlap");
       if (overlap && rolesFit(k, team) && !rolesFit(k, [...team, c])) push(`Roles already taken (${k.roles(c).join(", ")})`, -overlap.weight, overlap.status);
 

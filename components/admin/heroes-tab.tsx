@@ -16,13 +16,15 @@ import { HeroAvatar, HeroChip } from "@/components/hero-avatar";
 import { StatusToggle, TheoryBadge } from "@/components/status";
 import { HEROES, heroName } from "@/lib/heroes";
 import {
-  ALL_DRAFT_TYPES, DAMAGE_TYPES, MATCHUP_KINDS, RANK_BIAS, RATINGS, ROLES, TAGS, TIERS, TRIGGER_TRAITS, emptyProfile,
+  ALL_DRAFT_TYPES, DAMAGE_TYPES, MATCHUP_KINDS, RANK_BIAS, RATINGS, ROLES, STRONG_TRAITS, TAGS, TIERS, TRIGGER_TRAITS, emptyProfile,
   type DamageType, type HeroProfile, type KB, type Matchup, type RatingKey, type Synergy, type Tier,
 } from "@/lib/kb";
 import { saveRow } from "@/lib/kb-db";
 import { cn } from "@/lib/utils";
 
 type Filter = "all" | "meta" | "ban" | "review";
+// The 2–3 traits that really decide the matchup; anything else belongs in notes.
+const MAX_TRAITS = 3;
 const KIND_LABEL = new Map(MATCHUP_KINDS.map((k) => [k.value, k.label]));
 
 export function HeroesTab({
@@ -301,10 +303,13 @@ function HeroEditor({
             ))}
             {(["strong_vs_traits", "weak_vs_traits", "good_with_traits"] as const).map((key) => (
               <div key={key} className="space-y-1.5">
-                <Label>{{ strong_vs_traits: "Strong against heroes that are…", weak_vs_traits: "Weak against heroes that are…", good_with_traits: "Good with allies that are…" }[key]}</Label>
+                <Label>{{ strong_vs_traits: "Strong against heroes that are…", weak_vs_traits: "Weak against heroes that are…", good_with_traits: "Good with allies that are…" }[key]} <span className="font-normal text-muted-foreground">(max {MAX_TRAITS})</span></Label>
                 <ToggleGroup multiple variant="outline" size="sm" value={p[key] ?? []} className="flex-wrap"
-                  onValueChange={(v) => set(key, v as string[])} disabled={!canEdit}>
-                  {TRIGGER_TRAITS.map((t) => <ToggleGroupItem key={t.value} value={t.value}>{t.label}</ToggleGroupItem>)}
+                  onValueChange={(v) => {
+                    if (v.length > MAX_TRAITS) return toast.info(`Pick at most ${MAX_TRAITS} — put the rest in notes.`);
+                    set(key, v as string[]);
+                  }} disabled={!canEdit}>
+                  {(key === "weak_vs_traits" ? TRIGGER_TRAITS : STRONG_TRAITS).map((t) => <ToggleGroupItem key={t.value} value={t.value}>{t.label}</ToggleGroupItem>)}
                 </ToggleGroup>
               </div>
             ))}
@@ -314,7 +319,7 @@ function HeroEditor({
         <Card className="lg:col-span-2">
           <CardHeader>
             <CardTitle>Tags</CardTitle>
-            <CardDescription>Yes/no traits used by the rules (e.g. thick heroes need anti-tank damage).</CardDescription>
+            <CardDescription>Yes/no traits (e.g. tanks need anti-tank damage). True damage and global presence describe the hero but can&apos;t be countered.</CardDescription>
           </CardHeader>
           <CardContent>
             <ToggleGroup multiple variant="outline" size="sm" value={p.tags} onValueChange={(v) => set("tags", v as string[])} disabled={!canEdit} className="flex-wrap">
