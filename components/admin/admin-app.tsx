@@ -9,7 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Game, HeroProfile, ItemAdvice, KB, Matchup, Rule, Synergy } from "@/lib/kb";
 import { supabase } from "@/lib/supabase";
@@ -34,7 +33,7 @@ function upsertBy<T>(list: T[], row: T, same: (a: T, b: T) => boolean) {
 
 export function AdminApp() {
   const { kb, setKb, source } = useKb();
-  const { session, isAdmin, ready } = useAuth();
+  const { isAdmin, ready, configured, signIn, signOut } = useAuth();
   const [games, setGames] = useState<Game[]>([]);
   const [editing, setEditing] = useState<Editing>(null);
   const [loginOpen, setLoginOpen] = useState(false);
@@ -66,16 +65,15 @@ export function AdminApp() {
           <h1 className="text-xl font-semibold tracking-tight">Backoffice</h1>
           <p className="text-sm text-muted-foreground">The knowledge the draft analysis is built on.</p>
         </div>
-        {session ? (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="hidden sm:inline">{session.user.email}</span>
-            {isAdmin && <Badge variant="secondary">Admin</Badge>}
-            <Button variant="outline" size="sm" onClick={() => supabase?.auth.signOut()}>
+        {isAdmin ? (
+          <div className="flex items-center gap-2">
+            <Badge variant="secondary">Admin</Badge>
+            <Button variant="outline" size="sm" onClick={() => signOut().then(() => toast.success("Signed out"))}>
               <LogOutIcon /> Sign out
             </Button>
           </div>
         ) : (
-          supabase && ready && (
+          ready && configured && (
             <Button onClick={() => setLoginOpen(true)}>
               <LogInIcon /> Sign in to edit
             </Button>
@@ -90,13 +88,13 @@ export function AdminApp() {
           <AlertDescription>Showing the starting data, read-only.</AlertDescription>
         </Alert>
       )}
-      {session && !isAdmin && source === "db" && (
+      {ready && !configured && (
         <Alert className="mb-4">
           <TriangleAlertIcon />
-          <AlertTitle>Signed in, but not an admin</AlertTitle>
+          <AlertTitle>Backoffice login isn&apos;t set up</AlertTitle>
           <AlertDescription>
-            Add your email to the admins table in Supabase&apos;s SQL Editor:{" "}
-            <code className="font-mono">insert into admins (email) values (&apos;{session.user.email}&apos;);</code>
+            Add <code className="font-mono">ADMIN_PASSWORD</code> and <code className="font-mono">SUPABASE_SECRET_KEY</code> to the
+            environment variables (Vercel and <code className="font-mono">.env.local</code>), then redeploy.
           </AlertDescription>
         </Alert>
       )}
@@ -190,7 +188,7 @@ export function AdminApp() {
         onDeleted={(g) => setGames((rows) => rows.filter((r) => r.id !== g.id))}
       />
 
-      <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} />
+      <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} signIn={signIn} />
     </main>
   );
 }
@@ -199,39 +197,48 @@ function Count({ n }: { n: number }) {
   return <span className="ml-1 rounded-full bg-muted px-1.5 font-mono text-[10px] text-muted-foreground tabular-nums">{n}</span>;
 }
 
-function LoginDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
-  const [email, setEmail] = useState("");
+function LoginDialog({
+  open, onOpenChange, signIn,
+}: {
+  open: boolean;
+  onOpenChange: (o: boolean) => void;
+  signIn: (password: string) => Promise<void>;
+}) {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const signIn = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!supabase) return;
     setBusy(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setBusy(false);
-    if (error) return toast.error(error.message);
-    setPassword("");
-    onOpenChange(false);
-    toast.success("Signed in");
+    try {
+      await signIn(password);
+      setPassword("");
+      onOpenChange(false);
+      toast.success("Signed in");
+    } catch (err) {
+      toast.error((err as Error).message);
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
-          <DialogTitle>Sign in</DialogTitle>
-          <DialogDescription>Use the account you created in Supabase (Authentication → Users).</DialogDescription>
+          <DialogTitle>Backoffice password</DialogTitle>
+          <DialogDescription>Signs this browser in for 30 days.</DialogDescription>
         </DialogHeader>
-        <form onSubmit={signIn} className="space-y-4">
-          <div className="space-y-1.5">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" autoComplete="username" required value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-          </div>
+        <form onSubmit={submit} className="space-y-4">
+          <Input
+            type="password"
+            autoComplete="current-password"
+            autoFocus
+            required
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Button type="submit" className="w-full" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</Button>
         </form>
       </DialogContent>

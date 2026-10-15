@@ -15,7 +15,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { RANKS, analyze, suggestBans, suggestPicks, type Queue, type Rank, type Side, type Suggestion } from "@/lib/engine";
 import { HEROES, heroName } from "@/lib/heroes";
 import { BANS_PER_TEAM } from "@/lib/kb";
-import { supabase } from "@/lib/supabase";
+import { saveRow } from "@/lib/kb-db";
 import { useAuth } from "@/lib/use-auth";
 import { useKb } from "@/lib/use-kb";
 import { cn } from "@/lib/utils";
@@ -422,14 +422,18 @@ function LogGame({ draft, context, predicted }: { draft: Draft; context: string;
   const [saving, setSaving] = useState(false);
 
   const save = async () => {
-    if (!supabase || !winner) return;
+    if (!winner) return;
     setSaving(true);
-    const { error } = await supabase.from("games").insert({
-      red: filledOf(draft.red), blue: filledOf(draft.blue), red_bans: filledOf(draft.redBan), blue_bans: filledOf(draft.blueBan),
-      winner, rank: context, duration_min: Number(minutes) || null, reasoning: reasoning.trim(), predicted,
-    });
+    try {
+      await saveRow("games", {
+        red: filledOf(draft.red), blue: filledOf(draft.blue), red_bans: filledOf(draft.redBan), blue_bans: filledOf(draft.blueBan),
+        winner, rank: context, duration_min: Number(minutes) || null, reasoning: reasoning.trim(), predicted,
+      });
+    } catch (e) {
+      setSaving(false);
+      return toast.error(`Couldn't save: ${(e as Error).message}`);
+    }
     setSaving(false);
-    if (error) return toast.error(`Couldn't save: ${error.message}`);
     toast.success("Game logged");
     setWinner(""); setMinutes(""); setReasoning("");
   };

@@ -1,34 +1,48 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { Session } from "@supabase/supabase-js";
-import { supabase } from "./supabase";
+import { useCallback, useEffect, useState } from "react";
 
-// Current session plus whether the signed-in email is in the `admins` table (the only accounts allowed to write).
+type SessionState = { isAdmin: boolean; configured: boolean; ready: boolean };
+
+async function fetchSession(): Promise<Omit<SessionState, "ready">> {
+  try {
+    const res = await fetch("/api/admin/session", { cache: "no-store" });
+    const json = await res.json();
+    return { isAdmin: Boolean(json.admin), configured: Boolean(json.configured) };
+  } catch {
+    return { isAdmin: false, configured: false };
+  }
+}
+
+// Backoffice session (password login, see lib/admin-session.ts).
 export function useAuth() {
-  const [session, setSession] = useState<Session | null>(null);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [ready, setReady] = useState(!supabase);
+  const [state, setState] = useState<SessionState>({ isAdmin: false, configured: true, ready: false });
 
   useEffect(() => {
-    if (!supabase) return;
-    const check = async (s: Session | null) => {
-      setSession(s);
-      if (s) {
-        const { data } = await supabase!.from("admins").select("email").limit(1);
-        setIsAdmin(Boolean(data?.length));
-      } else {
-        setIsAdmin(false);
-      }
-      setReady(true);
-    };
-    supabase.auth.getSession().then(({ data }) => check(data.session));
-    // Defer: calling Supabase inside the auth callback can deadlock the client.
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
-      setTimeout(() => check(s), 0);
+    let cancelled = false;
+    fetchSession().then((s) => {
+      if (!cancelled) setState({ ...s, ready: true });
     });
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  return { session, isAdmin, ready };
+  const signIn = useCallback(async (password: string) => {
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(json.error ?? "Sign in failed");
+    setState((s) => ({ ...s, isAdmin: true }));
+  }, []);
+
+  const signOut = useCallback(async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
+    setState((s) => ({ ...s, isAdmin: false }));
+  }, []);
+
+  return { ...state, signIn, signOut };
 }
