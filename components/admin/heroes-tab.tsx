@@ -37,18 +37,21 @@ export function HeroesTab({
   openSynergy: (s: Synergy) => void;
 }) {
   const profiles = useMemo(() => new Map(kb.hero_profiles.map((p) => [p.slug, p])), [kb.hero_profiles]);
-  const [selected, setSelected] = useState("lukas");
+  const [selected, setSelected] = useState("aamon");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
+  const [role, setRole] = useState<string | null>(null);
+  const [sort, setSort] = useState<"az" | "release">("az");
 
   const heroes = HEROES.filter((h) => {
     const p = profiles.get(h.slug);
     if (query && !h.name.toLowerCase().includes(query.toLowerCase())) return false;
+    if (role && !p?.roles?.includes(role)) return false;
     if (filter === "meta") return p?.is_meta;
     if (filter === "ban") return p?.ban_recommended;
     if (filter === "review") return !p?.specs_reviewed;
     return true;
-  });
+  }).sort((a, b) => (sort === "az" ? a.name.localeCompare(b.name) : a.id - b.id));
 
   return (
     <div className="grid gap-4 md:grid-cols-[260px_1fr]">
@@ -64,6 +67,17 @@ export function HeroesTab({
             <ToggleGroupItem value="ban">Ban</ToggleGroupItem>
             <ToggleGroupItem value="review">Review</ToggleGroupItem>
           </ToggleGroup>
+          {/* Role filter: click the active role again to show every role. */}
+          <ToggleGroup variant="outline" size="sm" spacing={0} value={role ? [role] : []} onValueChange={(v) => setRole(v[0] ?? null)} className="w-full *:flex-1">
+            {ROLES.map((r) => <ToggleGroupItem key={r.value} value={r.value} className="px-1 text-xs">{r.label}</ToggleGroupItem>)}
+          </ToggleGroup>
+          <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+            <span>{heroes.length} heroes</span>
+            <ToggleGroup variant="outline" size="sm" spacing={0} value={[sort]} onValueChange={(v) => v[0] && setSort(v[0] as "az" | "release")}>
+              <ToggleGroupItem value="az" className="text-xs">A–Z</ToggleGroupItem>
+              <ToggleGroupItem value="release" className="text-xs">Release</ToggleGroupItem>
+            </ToggleGroup>
+          </div>
         </div>
         <div className="max-h-72 overflow-y-auto px-2 md:max-h-none md:flex-1">
           {heroes.map((h) => {
