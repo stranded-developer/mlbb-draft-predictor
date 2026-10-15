@@ -29,8 +29,11 @@ export async function POST(request: Request) {
   const textKey = TEXT_KEY[table];
   let query;
   if (textKey) query = db.from(table).upsert(row, { onConflict: textKey });
-  else if (row.id != null) query = db.from(table).update(row).eq("id", row.id as number);
-  else {
+  else if (row.id != null) {
+    // Generated identity column: use it to find the row, never send it as a change.
+    const { id, ...changes } = row;
+    query = db.from(table).update(changes).eq("id", id as number);
+  } else {
     delete row.id;
     query = db.from(table).insert(row);
   }
